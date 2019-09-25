@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -66,3 +67,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+=======
+# pattio_project
+Repo for the PATTIO project | CodiGo Bootcamp - 2nd Class - Lima, Peru
+>>>>>>> bcfd68ad396fe69903747e86abedf4b0e20dd9c4
