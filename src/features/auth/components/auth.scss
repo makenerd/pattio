@@ -1,0 +1,11 @@
+.form-control {
+  margin-bottom: 30px !important;
+}
+
+.form {
+  &__forgot {
+    text-decoration: underline;
+    color: #191F68;
+    float: right;
+  }
+}

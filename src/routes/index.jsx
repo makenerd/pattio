@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { AuthRoutes } from "../features/auth";
 import { CategoriesRoutes } from "../features/categories";
 import { CreatorsRoutes } from "../features/creators";
@@ -9,7 +9,7 @@ import {Login} from "../features/auth"
 
 function RoutesRoot() {
   return (
-    <Router>
+    // <Router>
       <Switch>
         <Route
           path="/"
@@ -40,7 +40,7 @@ function RoutesRoot() {
           }}
         />
       </Switch>
-    </Router>
+    // </Router>
   );
 }
 

@@ -1,11 +1,35 @@
 import React from 'react';
-// import HeaderAuth from '../../components'
-// import { Input } from "antd";
-
-// import "antd/dist/antd.css";
+import "../auth.scss"
+import banner from '../../../../assets/img/headerbanner2.png'
+import { Link } from 'react-router-dom'
+import {
+    Row,
+    Col,
+    Input,
+    Icon,
+    Checkbox,
+    Button 
+} from "antd";
 
 function Login() {
-    return <h1>login</h1>;
+    return (
+      <>
+        <img src={banner} alt=""/>
+          
+          <Row>
+            <Col span={20} offset={2}>
+              <h1>Login</h1>
+              <Input className="form-control" placeholder="Usuario" prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}/>
+              <Input className="form-control" placeholder="Contraseña" prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }}/>} />
+              <Checkbox className="form-control">Recuérdame</Checkbox>
+              <Link to="auth/cambiar-contrasena" className="form__forgot">¿Olvidaste tu contraseña?</Link>
+              <Button className="form-control" type="primary" block>Ingresar</Button>
+
+              <Link to="/auth/registro">No tengo una cuenta, registrarme</Link>
+            </Col>
+          </Row>
+      </>
+    )
 }
 
 export { Login } 

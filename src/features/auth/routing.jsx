@@ -1,7 +1,9 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import {
-  Login
+  Login,
+  Register,
+  Password
 } from './components'
 
 function AuthRoutes() {
@@ -11,6 +13,16 @@ function AuthRoutes() {
         path="/auth"
         exact
         component={Login}
+      />
+      <Route
+        path="/auth/registro"
+        exact
+        component={Register}
+      />
+      <Route
+        path="/auth/cambiar-contrasena"
+        exact
+        component={Password}
       />
     </Switch>
   );
