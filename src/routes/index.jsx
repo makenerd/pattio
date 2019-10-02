@@ -1,11 +1,11 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import { AuthRoutes } from "../features/auth";
+import { AuthRoutes } from "../views/auth";
 import { CategoriesRoutes } from "../features/categories";
 import { CreatorsRoutes } from "../features/creators";
 import { BrandsRoutes } from "../features/brands";
 import { ProductsList } from "../features/products";
-import {Login} from "../features/auth"
+
 
 function RoutesRoot() {
   return (
@@ -29,10 +29,7 @@ function RoutesRoot() {
             console.log("perfil!!");
           }}
         />
-        <Route
-          path="/login"
-          component={Login}
-        />
+        
         <Route
           path="/payments"
           component={() => {
