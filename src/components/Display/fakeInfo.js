@@ -5,7 +5,7 @@
 const fakeInfoHome =
 
 [
-    {groupTitle: "Ultimas Listas", groupType: "scrollH", items:
+    {groupTitle: "Ultimas Listas", groupType: "scrollH", groupUrl: "/listas", items:
     [
         {image: "https://source.unsplash.com/random/1", type: "squareM", description: "Bikinis Chic", author: "Mafer Neyra"},
         {image: "https://source.unsplash.com/random/2", type: "squareM", description: "Vestidos Rua", author: "Palodirtyano"},
@@ -18,7 +18,7 @@ const fakeInfoHome =
         {image: "https://source.unsplash.com/random/3", type: "squareM", description: "Fitness Queen", author: "Ale Chavez"},
 
     ]},
-    {groupTitle: "Creadores", groupType: "scrollH", items:
+    {groupTitle: "Creadores", groupType: "scrollH", groupUrl: "/creadores", items:
 [
         {image: "https://source.unsplash.com/random/4", type: "circleM", description: "Palodirtyano"},
         {image: "https://source.unsplash.com/random/5", type: "circleM", description: "Mafer Neyra"},
@@ -31,7 +31,7 @@ const fakeInfoHome =
         {image: "https://source.unsplash.com/random/6", type: "circleM", description: "Ximena Moral"},
   
 ]},
-    {groupTitle: "Marcas", groupType: "scrollH", items:
+    {groupTitle: "Marcas", groupType: "scrollH", groupUrl: "/marcas", items:
 [
         {image: "https://source.unsplash.com/random/7", type: "circleM", description: "Capittana"},
         {image: "https://source.unsplash.com/random/8", type: "circleM", description: "Late La Tela"},
@@ -43,7 +43,7 @@ const fakeInfoHome =
         {image: "https://source.unsplash.com/random/8", type: "circleM", description: "Late La Tela"},
         {image: "https://source.unsplash.com/random/9", type: "circleM", description: "Naga"},
 ]},
-    {groupTitle: "Categorias", groupType: "scrollH", items:
+    {groupTitle: "Categorias", groupType: "scrollH", groupUrl: "/categorias", items:
 [
         {image: "https://source.unsplash.com/random/10", type: "circleM", description: "Ropas de baño"},
         {image: "https://source.unsplash.com/random/11", type: "circleM", description: "Vestidos"},
@@ -65,7 +65,7 @@ const fakeInfoHome =
 const fakeInfoCategorias =
 
 [
-    {groupTitle: "Ropas de baño", groupType: "scrollH", items:
+    {groupTitle: "Ropas de baño", groupType: "scrollH", groupUrl: "/categorias/swimwear", items:
 [
         {image: "https://source.unsplash.com/random/1", type: "squareM", description: "Bikini Ibiza", author: "Capittana", price: 59.99},
         {image: "https://source.unsplash.com/random/2", type: "squareM", description: "Onepiece Cutie", author: "Naga", price: 34.99},
@@ -78,7 +78,7 @@ const fakeInfoCategorias =
         {image: "https://source.unsplash.com/random/3", type: "squareM", description: "Bikini Animal Print", author: "Late La Tela", price: 29.99},
 
 ]},
-    {groupTitle: "Vestidos", groupType: "scrollH", items:
+    {groupTitle: "Vestidos", groupType: "scrollH", groupUrl: "/categorias/vestidos", items:
 [
         {image: "https://source.unsplash.com/random/4", type: "squareM", description: "Vestido Duquesa", author: "Naga", price: 75.99},
         {image: "https://source.unsplash.com/random/5", type: "squareM", description: "Vestido Marina", author: "Capittana", price: 34.99},
@@ -90,7 +90,7 @@ const fakeInfoCategorias =
         {image: "https://source.unsplash.com/random/5", type: "squareM", description: "Vestido Marina", author: "Capittana", price: 34.99},
         {image: "https://source.unsplash.com/random/6", type: "squareM", description: "Vestido Duquesa", author: "Late La Tela", price: 19.99},
 ]},
-    {groupTitle: "Calzado", groupType: "scrollH", items:
+    {groupTitle: "Calzado", groupType: "scrollH", groupUrl: "/categorias/calzado", items:
 [
         {image: "https://source.unsplash.com/random/7", type: "squareM", description: "Botas Old Country", author: "Capittana", price: 99.99},
         {image: "https://source.unsplash.com/random/8", type: "squareM", description: "Valerines Mary Poppins", author: "Late La Tela", price: 65.99},
@@ -102,7 +102,7 @@ const fakeInfoCategorias =
         {image: "https://source.unsplash.com/random/8", type: "squareM", description: "Valerines Mary Poppins", author: "Late La Tela", price: 65.99},
         {image: "https://source.unsplash.com/random/9", type: "squareM", description: "Tacos Femme Fatale", author: "Naga", price: 149.99},
 ]},
-    {groupTitle: "Blusas", groupType: "scrollH", items:
+    {groupTitle: "Blusas", groupType: "scrollH", groupUrl: "/categorias/blusas", items:
 [
         {image: "https://source.unsplash.com/random/10", type: "squareM", description: "Blusa Boss Woman", author: "Capittana", price: 59.99},
         {image: "https://source.unsplash.com/random/11", type: "squareM", description: "Blusa Flower Power", author: "Late La Tela", price: 49.99},
@@ -141,19 +141,13 @@ const fakeInfoCategoria =
 ];
 
 // ============================================================
-// FAKE INFO PRODUCTO
-// ============================================================
-
-
-
-// ============================================================
 // FAKE INFO CREADORES
 // ============================================================
 
 const fakeInfoCreadores =
 
 [
-    {groupTitle: "Palodirtyano", groupType: "scrollH", items:
+    {groupTitle: "Palodirtyano", groupType: "scrollH", groupUrl: "/creadores/palodirtyano", items:
 [
         {image: "https://source.unsplash.com/random/1", type: "squareM", description: "Bikini Ibiza", author: "Capittana", price: 59.99},
         {image: "https://source.unsplash.com/random/2", type: "squareM", description: "Onepiece Cutie", author: "Naga", price: 34.99},
@@ -166,7 +160,7 @@ const fakeInfoCreadores =
         {image: "https://source.unsplash.com/random/3", type: "squareM", description: "Bikini Animal Print", author: "Late La Tela", price: 29.99},
 
 ]},
-    {groupTitle: "Mafer Neyra", groupType: "scrollH", items:
+    {groupTitle: "Mafer Neyra", groupType: "scrollH", groupUrl: "/creadores/maferneyra", items:
 [
         {image: "https://source.unsplash.com/random/4", type: "squareM", description: "Vestido Duquesa", author: "Naga", price: 75.99},
         {image: "https://source.unsplash.com/random/5", type: "squareM", description: "Vestido Marina", author: "Capittana", price: 34.99},
@@ -178,7 +172,7 @@ const fakeInfoCreadores =
         {image: "https://source.unsplash.com/random/5", type: "squareM", description: "Vestido Marina", author: "Capittana", price: 34.99},
         {image: "https://source.unsplash.com/random/6", type: "squareM", description: "Vestido Duquesa", author: "Late La Tela", price: 19.99},
 ]},
-    {groupTitle: "Ximena Moral", groupType: "scrollH", items:
+    {groupTitle: "Ximena Moral", groupType: "scrollH", groupUrl: "/creadores/ximenamoral", items:
 [
         {image: "https://source.unsplash.com/random/7", type: "squareM", description: "Botas Old Country", author: "Capittana", price: 99.99},
         {image: "https://source.unsplash.com/random/8", type: "squareM", description: "Valerines Mary Poppins", author: "Late La Tela", price: 65.99},
@@ -190,7 +184,7 @@ const fakeInfoCreadores =
         {image: "https://source.unsplash.com/random/8", type: "squareM", description: "Valerines Mary Poppins", author: "Late La Tela", price: 65.99},
         {image: "https://source.unsplash.com/random/9", type: "squareM", description: "Tacos Femme Fatale", author: "Naga", price: 149.99},
 ]},
-    {groupTitle: "Alejandra Chavez", groupType: "scrollH", items:
+    {groupTitle: "Alejandra Chavez", groupType: "scrollH", groupUrl: "/creadores/alechavez", items:
 [
         {image: "https://source.unsplash.com/random/10", type: "squareM", description: "Blusa Boss Woman", author: "Capittana", price: 59.99},
         {image: "https://source.unsplash.com/random/11", type: "squareM", description: "Blusa Flower Power", author: "Late La Tela", price: 49.99},
@@ -212,7 +206,7 @@ const fakeInfoCreadores =
 const fakeInfoCreador =
 
 [
-    {groupTitle: "Listas", groupType: "scrollH", items:
+    {groupTitle: "Listas", groupType: "scrollH", groupUrl: "/creadores/palodirtyano/lista", items:
 [
         {image: "https://source.unsplash.com/random/1", type: "squareM", description: "Bikinis Chic"},
         {image: "https://source.unsplash.com/random/2", type: "squareM", description: "Vestidos Rua"},
@@ -225,7 +219,7 @@ const fakeInfoCreador =
         {image: "https://source.unsplash.com/random/3", type: "squareM", description: "Fitness Queen"},
 
 ]},
-    {groupTitle: "Vestidos", groupType: "scrollH", items:
+    {groupTitle: "Vestidos", groupType: "scrollH", groupUrl: "/creadores/palodirtyano/vestidos", items:
 [
         {image: "https://source.unsplash.com/random/4", type: "squareM", description: "Vestido Duquesa", author: "Naga", price: 75.99},
         {image: "https://source.unsplash.com/random/5", type: "squareM", description: "Vestido Marina", author: "Capittana", price: 34.99},
@@ -237,7 +231,7 @@ const fakeInfoCreador =
         {image: "https://source.unsplash.com/random/5", type: "squareM", description: "Vestido Marina", author: "Capittana", price: 34.99},
         {image: "https://source.unsplash.com/random/6", type: "squareM", description: "Vestido Duquesa", author: "Late La Tela", price: 19.99},
 ]},
-    {groupTitle: "Calzado", groupType: "scrollH", items:
+    {groupTitle: "Calzado", groupType: "scrollH", groupUrl: "/creadores/palodirtyano/calzado", items:
 [
         {image: "https://source.unsplash.com/random/7", type: "squareM", description: "Botas Old Country", author: "Capittana", price: 99.99},
         {image: "https://source.unsplash.com/random/8", type: "squareM", description: "Valerines Mary Poppins", author: "Late La Tela", price: 65.99},
@@ -249,7 +243,7 @@ const fakeInfoCreador =
         {image: "https://source.unsplash.com/random/8", type: "squareM", description: "Valerines Mary Poppins", author: "Late La Tela", price: 65.99},
         {image: "https://source.unsplash.com/random/9", type: "squareM", description: "Tacos Femme Fatale", author: "Naga", price: 149.99},
 ]},
-    {groupTitle: "Blusas", groupType: "scrollH", items:
+    {groupTitle: "Blusas", groupType: "scrollH", groupUrl: "/creadores/palodirtyano/blusas", items:
 [
         {image: "https://source.unsplash.com/random/10", type: "squareM", description: "Blusa Boss Woman", author: "Capittana", price: 59.99},
         {image: "https://source.unsplash.com/random/11", type: "squareM", description: "Blusa Flower Power", author: "Late La Tela", price: 49.99},
@@ -271,7 +265,7 @@ const fakeInfoCreador =
 const fakeInfoMarcas =
 
 [
-    {groupTitle: "Late La Tela", groupType: "scrollH", items:
+    {groupTitle: "Late La Tela", groupType: "scrollH", groupUrl: "/marcas/latelatela", items:
 [
         {image: "https://source.unsplash.com/random/1", type: "squareM", description: "Bikini Ibiza", author: "Late La Tela", price: 59.99},
         {image: "https://source.unsplash.com/random/2", type: "squareM", description: "Onepiece Cutie", author: "Late La Tela", price: 34.99},
@@ -284,7 +278,7 @@ const fakeInfoMarcas =
         {image: "https://source.unsplash.com/random/3", type: "squareM", description: "Bikini Animal Print", author: "Late La Tela", price: 29.99},
 
 ]},
-    {groupTitle: "Capittana", groupType: "scrollH", items:
+    {groupTitle: "Capittana", groupType: "scrollH", groupUrl: "/marcas/capittana", items:
 [
         {image: "https://source.unsplash.com/random/4", type: "squareM", description: "Vestido Duquesa", author: "Capittana", price: 75.99},
         {image: "https://source.unsplash.com/random/5", type: "squareM", description: "Vestido Marina", author: "Capittana", price: 34.99},
@@ -296,7 +290,7 @@ const fakeInfoMarcas =
         {image: "https://source.unsplash.com/random/5", type: "squareM", description: "Vestido Marina", author: "Capittana", price: 34.99},
         {image: "https://source.unsplash.com/random/6", type: "squareM", description: "Vestido Duquesa", author: "Capittana", price: 19.99},
 ]},
-    {groupTitle: "Naga", groupType: "scrollH", items:
+    {groupTitle: "Naga", groupType: "scrollH", groupUrl: "/marcas/naga", items:
 [
         {image: "https://source.unsplash.com/random/7", type: "squareM", description: "Botas Old Country", author: "Naga", price: 99.99},
         {image: "https://source.unsplash.com/random/8", type: "squareM", description: "Valerines Mary Poppins", author: "Naga", price: 65.99},
@@ -308,7 +302,7 @@ const fakeInfoMarcas =
         {image: "https://source.unsplash.com/random/8", type: "squareM", description: "Valerines Mary Poppins", author: "Naga", price: 65.99},
         {image: "https://source.unsplash.com/random/9", type: "squareM", description: "Tacos Femme Fatale", author: "Naga", price: 149.99},
 ]},
-    {groupTitle: "Vivi Woo", groupType: "scrollH", items:
+    {groupTitle: "Vivi Woo", groupType: "scrollH", groupUrl: "/marcas/viviwoo", items:
 [
         {image: "https://source.unsplash.com/random/10", type: "squareM", description: "Blusa Boss Woman", author: "Vivi Woo", price: 59.99},
         {image: "https://source.unsplash.com/random/11", type: "squareM", description: "Blusa Flower Power", author: "Vivi Woo", price: 49.99},
@@ -331,7 +325,7 @@ const fakeInfoMarca =
 
 
 [
-    {groupTitle: "Listas", groupType: "scrollH", items:
+    {groupTitle: "Listas", groupType: "scrollH", groupUrl: "/marcas/capittana/lista", items:
 [
         {image: "https://source.unsplash.com/random/1", type: "squareM", description: "Colección primavera"},
         {image: "https://source.unsplash.com/random/2", type: "squareM", description: "Invierno en Liquidación"},
@@ -344,7 +338,7 @@ const fakeInfoMarca =
         {image: "https://source.unsplash.com/random/3", type: "squareM", description: "Favoritas del Mes"},
 
 ]},
-    {groupTitle: "Vestidos", groupType: "scrollH", items:
+    {groupTitle: "Vestidos", groupType: "scrollH", groupUrl: "/marcas/capittana/vestidos", items:
 [
         {image: "https://source.unsplash.com/random/4", type: "squareM", description: "Vestido Duquesa", author: "Naga", price: 75.99},
         {image: "https://source.unsplash.com/random/5", type: "squareM", description: "Vestido Marina", author: "Capittana", price: 34.99},
@@ -356,7 +350,7 @@ const fakeInfoMarca =
         {image: "https://source.unsplash.com/random/5", type: "squareM", description: "Vestido Marina", author: "Capittana", price: 34.99},
         {image: "https://source.unsplash.com/random/6", type: "squareM", description: "Vestido Duquesa", author: "Late La Tela", price: 19.99},
 ]},
-    {groupTitle: "Calzado", groupType: "scrollH", items:
+    {groupTitle: "Calzado", groupType: "scrollH", groupUrl: "/marcas/capittana/calzado", items:
 [
         {image: "https://source.unsplash.com/random/7", type: "squareM", description: "Botas Old Country", author: "Capittana", price: 99.99},
         {image: "https://source.unsplash.com/random/8", type: "squareM", description: "Valerines Mary Poppins", author: "Late La Tela", price: 65.99},
@@ -368,7 +362,7 @@ const fakeInfoMarca =
         {image: "https://source.unsplash.com/random/8", type: "squareM", description: "Valerines Mary Poppins", author: "Late La Tela", price: 65.99},
         {image: "https://source.unsplash.com/random/9", type: "squareM", description: "Tacos Femme Fatale", author: "Naga", price: 149.99},
 ]},
-    {groupTitle: "Blusas", groupType: "scrollH", items:
+    {groupTitle: "Blusas", groupType: "scrollH", groupUrl: "/marcas/capittana/blusas", items:
 [
         {image: "https://source.unsplash.com/random/10", type: "squareM", description: "Blusa Boss Woman", author: "Capittana", price: 59.99},
         {image: "https://source.unsplash.com/random/11", type: "squareM", description: "Blusa Flower Power", author: "Late La Tela", price: 49.99},
