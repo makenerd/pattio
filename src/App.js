@@ -1,6 +1,6 @@
 import React from "react";
 import { RoutesRoot } from "./routes";
-import { HashRouter as Router} from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import { Header, Main, Footer } from "./components";
 import 'antd/dist/antd.css';
 import "./assets/styles/main.scss";
@@ -8,13 +8,13 @@ import "./assets/styles/main.scss";
 function App() {
   return (
     <div className="App">
-      <Router>
+      <BrowserRouter>
         <Header />
         <Main>
           <RoutesRoot />
         </Main>
         <Footer />
-      </Router>
+      </BrowserRouter>
     </div>
   );
 }

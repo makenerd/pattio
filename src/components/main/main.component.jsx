@@ -2,8 +2,7 @@ import React from "react";
 import "./main.scss";
 
 function Main(props) {
-  const { children } = props;
-  return <main className="main">{children}</main>;
+  return <main className="main">{props.children}</main>;
 }
 
 export { Main };

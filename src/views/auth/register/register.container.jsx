@@ -1,6 +1,6 @@
 import React from 'react';
 import "../auth.scss"
-import banner from '../../../../assets/img/headerbanner2.png'
+import banner from '../../../assets/img/headerbanner2.png'
 import {
     Row,
     Col,
