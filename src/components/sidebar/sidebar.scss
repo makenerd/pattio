@@ -1,0 +1,13 @@
+.ant-layout-sider {
+  position: absolute !important;
+  z-index: 1000;
+  min-height: 100%;
+}
+
+.ant-layout-sider-zero-width-trigger-left {
+  top: -52px !important;
+  left: 9px;
+  z-index: 10000;
+  color: #fff !important;
+  background-color: transparent !important;
+}

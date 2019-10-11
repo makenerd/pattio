@@ -8,19 +8,23 @@ let randomImg = () => {return `https://source.unsplash.com/random/${Math.floor((
 const fakeInfoHome =
 
 [
-    {groupTitle: "Ultimas Listas", groupType: "scrollH", groupUrl: "/listas", items:
-    [
-        {image: randomImg(), type: "squareM", description: "Bikinis Chic", author: "Mafer Neyra"},
-        {image: randomImg(), type: "squareM", description: "Vestidos Rua", author: "Palodirtyano"},
-        {image: randomImg(), type: "squareM", description: "Fitness Queen", author: "Ale Chavez"},
-        {image: randomImg(), type: "squareM", description: "Bikinis Chic", author: "Mafer Neyra"},
-        {image: randomImg(), type: "squareM", description: "Vestidos Rua", author: "Palodirtyano"},
-        {image: randomImg(), type: "squareM", description: "Fitness Queen", author: "Ale Chavez"},
-        {image: randomImg(), type: "squareM", description: "Bikinis Chic", author: "Mafer Neyra"},
-        {image: randomImg(), type: "squareM", description: "Vestidos Rua", author: "Palodirtyano"},
-        {image: randomImg(), type: "squareM", description: "Fitness Queen", author: "Ale Chavez"},
-
-    ]},
+    {   
+        groupTitle: "Ultimas Listas", 
+        groupType: "scrollH", 
+        groupUrl: "/listas", 
+        items:
+            [
+                {image: randomImg(), type: "squareM", description: "Bikinis Chic", author: "Mafer Neyra"},
+                {image: randomImg(), type: "squareM", description: "Vestidos Rua", author: "Palodirtyano"},
+                {image: randomImg(), type: "squareM", description: "Fitness Queen", author: "Ale Chavez"},
+                {image: randomImg(), type: "squareM", description: "Bikinis Chic", author: "Mafer Neyra"},
+                {image: randomImg(), type: "squareM", description: "Vestidos Rua", author: "Palodirtyano"},
+                {image: randomImg(), type: "squareM", description: "Fitness Queen", author: "Ale Chavez"},
+                {image: randomImg(), type: "squareM", description: "Bikinis Chic", author: "Mafer Neyra"},
+                {image: randomImg(), type: "squareM", description: "Vestidos Rua", author: "Palodirtyano"},
+                {image: randomImg(), type: "squareM", description: "Fitness Queen", author: "Ale Chavez"},
+            ]
+    },
     {groupTitle: "Creadores", groupType: "scrollH", groupUrl: "/creadores", items:
 [
         {image: randomImg(), type: "circleM", description: "Palodirtyano"},
