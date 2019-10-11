@@ -1,7 +1,7 @@
 import React from "react";
 import { RoutesRoot } from "./routes";
 import { BrowserRouter } from "react-router-dom";
-import { Sidebar, Header, Main, Footer } from "./components";
+import { Sidebar, Header, Main, Footer } from "./components/layout";
 import 'antd/dist/antd.css';
 import "./assets/styles/main.scss";
 
