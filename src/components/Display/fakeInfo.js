@@ -25,19 +25,24 @@ const fakeInfoHome =
                 {image: randomImg(), type: "squareM", description: "Fitness Queen", author: "Ale Chavez"},
             ]
     },
-    {groupTitle: "Creadores", groupType: "scrollH", groupUrl: "/creadores", items:
-[
-        {image: randomImg(), type: "circleM", description: "Palodirtyano"},
-        {image: randomImg(), type: "circleM", description: "Mafer Neyra"},
-        {image: randomImg(), type: "circleM", description: "Ximena Moral"},
-        {image: randomImg(), type: "circleM", description: "Palodirtyano"},
-        {image: randomImg(), type: "circleM", description: "Mafer Neyra"},
-        {image: randomImg(), type: "circleM", description: "Ximena Moral"},
-        {image: randomImg(), type: "circleM", description: "Palodirtyano"},
-        {image: randomImg(), type: "circleM", description: "Mafer Neyra"},
-        {image: randomImg(), type: "circleM", description: "Ximena Moral"},
-  
-]},
+    {
+        groupTitle: "Creadores", 
+        groupType: "scrollH", 
+        groupUrl: "/creadores", 
+        items:
+            [
+                {image: randomImg(), type: "circleM", description: "Palodirtyano"},
+                {image: randomImg(), type: "circleM", description: "Mafer Neyra"},
+                {image: randomImg(), type: "circleM", description: "Ximena Moral"},
+                {image: randomImg(), type: "circleM", description: "Palodirtyano"},
+                {image: randomImg(), type: "circleM", description: "Mafer Neyra"},
+                {image: randomImg(), type: "circleM", description: "Ximena Moral"},
+                {image: randomImg(), type: "circleM", description: "Palodirtyano"},
+                {image: randomImg(), type: "circleM", description: "Mafer Neyra"},
+                {image: randomImg(), type: "circleM", description: "Ximena Moral"},
+        
+            ]
+    },
     {groupTitle: "Marcas", groupType: "scrollH", groupUrl: "/marcas", items:
 [
         {image: randomImg(), type: "circleM", description: "Capittana"},
@@ -283,7 +288,6 @@ const fakeInfoMarcas =
         {image: randomImg(), type: "squareM", description: "Bikini Ibiza", author: "Late La Tela", price: 59.99},
         {image: randomImg(), type: "squareM", description: "Onepiece Cutie", author: "Late La Tela", price: 34.99},
         {image: randomImg(), type: "squareM", description: "Bikini Animal Print", author: "Late La Tela", price: 29.99},
-
 ]},
     {groupTitle: "Capittana", groupType: "scrollH", groupUrl: "/marcas/capittana", items:
 [
@@ -437,7 +441,14 @@ const fakeInfoLista =
 
     const fakeInfoProduct = 
     {
-        image: ["https://source.unsplash.com/random/1", "https://source.unsplash.com/random/2", "https://source.unsplash.com/random/3", "https://source.unsplash.com/random/4", "https://source.unsplash.com/random/5", "https://source.unsplash.com/random/6"],
+        image: [
+            "https://source.unsplash.com/random/1", 
+            "https://source.unsplash.com/random/2", 
+            "https://source.unsplash.com/random/3", 
+            "https://source.unsplash.com/random/4", 
+            "https://source.unsplash.com/random/5", 
+            "https://source.unsplash.com/random/6"
+        ],
         type: "squareXL",
         description: "Bikini Ibiza",
         author: "Capittana",
