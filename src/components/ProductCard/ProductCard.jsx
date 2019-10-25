@@ -6,7 +6,6 @@ import "slick-carousel/slick/slick-theme.css";
 import Options from '../Options/Options';
 import Counter from '../Counter/Counter';
 import { useDispatch } from 'react-redux';
-import uuid from 'uuid/v4';
 
 function Card(props) {
     const {image=[], type="", description="", author="", price="", shipping="", options=[], sizes=[]} = props;
@@ -18,7 +17,7 @@ function Card(props) {
     const [count, setCount] = useState(1);
     const dispatchCart = useDispatch();
 
-    const renderTitle = type === "squareXL" ?
+    const renderTitle = type === "squareXL" ? 
     <div className="CardHeaderXL">
         <div className='CardTitleXL'>{description}</div>
         <div className='CardAuthorXL'>{author}</div>
@@ -36,7 +35,7 @@ function Card(props) {
     const renderImage = type === "squareXL" ?
             <div className="sliderImg">
                 <Slider {...settings}>
-                    {image.map(img => <div className="sliderImg" key={uuid()}><div className={`CardImage ${type}`} style={{backgroundImage: `url(${img})`}}></div></div>)}
+                    {image.map(img => <div className="sliderImg"><div className={`CardImage ${type}`} style={{backgroundImage: `url(${img})`}}></div></div>)}
                 </Slider>
             </div>
         :
@@ -65,7 +64,7 @@ function Card(props) {
     }[(type !== "squareS" && type !== "squareXL") ? "default" : type]; 
 
     return (
-        <div className={cardContainer} key={uuid()}>
+        <div className={cardContainer}>
             {renderTitle}
             {renderImage}
             {renderDescription}

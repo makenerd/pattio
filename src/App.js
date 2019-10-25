@@ -1,21 +1,26 @@
 import React from "react";
 import { RoutesRoot } from "./routes";
 import { BrowserRouter } from "react-router-dom";
-import { Sidebar, Header, Main, Footer } from "./components/layout";
+import { Sidebar, Header, Main, Footer, Menu } from "./components/layout";
 import 'antd/dist/antd.css';
 import "./assets/styles/main.scss";
+import { Provider } from 'react-redux';
+import { store } from './redux/redux';
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Header />
-        <Main>
-          <Sidebar/>
-          <RoutesRoot />
-        </Main>
-        <Footer />
-      </BrowserRouter>
+      <Provider store={store}>
+        <BrowserRouter>
+          <Header />
+          <Main>
+            <Sidebar/>
+            {/* <Menu/> */}
+            <RoutesRoot />
+          </Main>
+          <Footer />
+        </BrowserRouter>
+      </Provider>
     </div>
   );
 }
