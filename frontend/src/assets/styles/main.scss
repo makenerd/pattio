@@ -1,0 +1,17 @@
+
+.App {
+  display: flex;
+  flex-direction: column;
+}
+
+#root,
+.App {
+  min-height: 100vh
+}
+
+a {
+  color: inherit;
+}
+a:hover {
+   color: inherit;
+}

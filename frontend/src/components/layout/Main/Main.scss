@@ -1,0 +1,10 @@
+.Main {
+  flex-grow: 1;
+  position: relative;
+  display: grid;
+  justify-content: center;
+  &__container {
+    max-width: 1000px;
+    overflow-x: scroll;
+  }
+}
