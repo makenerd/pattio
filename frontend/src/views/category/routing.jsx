@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
-import Display from '../../components/Display/Display.js';
-import Card from '../../components/Card/Card.js';
+import Display from '../../components/Display/Display.jsx';
+import Card from '../../components/Card/Card.jsx';
 import {  fakeInfoCategorias, 
           fakeInfoCategoria, 
           fakeInfoProduct, 

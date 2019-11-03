@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
-import Display from '../../components/Display/Display.js';
+import Display from '../../components/Display/Display.jsx';
 import { fakeInfoCart } from '../../components/Display/fakeInfo.js';
 
 function CartRoutes(props) {

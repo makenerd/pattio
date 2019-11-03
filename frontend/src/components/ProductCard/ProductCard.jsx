@@ -3,8 +3,8 @@ import './Card.scss';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Options from '../Options/Options';
-import Counter from '../Counter/Counter';
+import Options from '../Options/Options.jsx';
+import Counter from '../Counter/Counter.jsx';
 import { useDispatch } from 'react-redux';
 
 function Card(props) {

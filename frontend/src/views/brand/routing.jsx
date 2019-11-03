@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom'
-import Display from '../../components/Display/Display.js';
-import Card from '../../components/Card/Card.js';
+import Display from '../../components/Display/Display.jsx';
+import Card from '../../components/Card/Card.jsx';
 import {  fakeInfoMarcas, 
           fakeInfoMarca, 
           fakeInfoLista, 

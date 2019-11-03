@@ -1,6 +1,6 @@
 import React from 'react';
 import './Group.scss';
-import Card from '../Card/Card.js';
+import Card from '../Card/Card.jsx';
 import { Link } from 'react-router-dom';
 import { Icon } from 'antd';
 import uuid from 'uuid/v4';

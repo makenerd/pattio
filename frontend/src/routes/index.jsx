@@ -2,11 +2,11 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import { AuthRoutes } from "../views/auth";
 
-import { CreatorRoutes } from '../views/creator/routing';
-import { ListRoutes } from '../views/follower/routing';
-import { BrandRoutes } from '../views/brand/routing';
-import { CategoryRoutes } from '../views/category/routing';
-import { CartRoutes } from '../views/cart/routing';
+import { CreatorRoutes } from '../views/creator/routing.jsx';
+import { ListRoutes } from '../views/follower/routing.jsx';
+import { BrandRoutes } from '../views/brand/routing.jsx';
+import { CategoryRoutes } from '../views/category/routing.jsx';
+import { CartRoutes } from '../views/cart/routing.jsx';
 
 import { Home } from "../views/displays";
 

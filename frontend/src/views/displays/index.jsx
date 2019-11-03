@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Display from '../../components/Display/Display.js';
+import Display from '../../components/Display/Display.jsx';
 
 import {  fakeInfoHome } from '../../components/Display/fakeInfo.js';
 

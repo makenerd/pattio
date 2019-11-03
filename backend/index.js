@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv/config');
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
@@ -17,10 +17,12 @@ app.use(morgan('dev'));
 app.use(express.static('../frontend/public'));
 
 // Routes
-app.use('/api/users',require('./routes/userRouter'));
+app.use('/api/creators', require('./routes/creatorRouter'));
+app.use('/api/products', require('./routes/productRouter'));
+app.use('/api/brands', require('./routes/brandRouter'));
 
 const uri = process.env.ATLAS_URI;
-mongoose.connect('mongodb://localhost/pattio-users', {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true})
     .then(db => console.log('Conectando a MongoDB, yeee!😱'))
     .catch(err => console.log('Error, OH NO! ', err));
 // mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true});
