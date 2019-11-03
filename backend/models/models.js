@@ -13,7 +13,7 @@ const productSchema = new Schema({
     category: { type: String, enum: category_list },
     // lists: [{ type: Schema.Types.ObjectId, ref: 'list' }],
     // creators: [{ type: Schema.Types.ObjectId, ref: 'creator' }],
-    brand: { type: Schema.Types.ObjectId, ref: 'brand' },
+    brand: {name: String, id: { type: Schema.Types.ObjectId, ref: 'brand' }},
 }, {timestamps: true});
 
 const listSchema =  new Schema({

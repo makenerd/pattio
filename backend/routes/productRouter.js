@@ -8,6 +8,18 @@ router.get('/', async (req, res) => {
     } catch(err) {res.json('Error! 😭', err)}
 });
 
+router.get('/grouped', async (req, res) => {
+    try {
+        const categories = await Product.distinct('category', {'brand.name': req.query.brand });
+        const groups = categories.map(async category => {
+            const group = await Product.find({'brand.name': req.query.brand, category: category}, 'name price thumbnail brand.name');
+            return {category: category, group: group};
+        }); 
+        result = await Promise.all(groups)
+        res.json(result);
+    } catch(err) {res.json('Error! 😭', err)}
+});
+
 router.get('/category/:category', async (req, res) => {
     try {
         const searcher = {ropasbaño: 'Ropas de baño', vestidos: 'Vestidos'}[req.params.category];
@@ -37,67 +49,67 @@ router.post('/', async (req, res) => {
 
 module.exports = router;
 
-Product.insertMany(
-    [
-        {
-            name: "Vestido Marion",
-            description: "Este me encanta su elegancia",
-            price: 99.99,
-            thumbnail: "https://source.unsplash.com/random/1",
-            images: ["https://source.unsplash.com/random/1", "https://source.unsplash.com/random/2", "https://source.unsplash.com/random/3"],
-            vars: ["Rojo", "Negro", "Blanco"],
-            category: "Vestidos",
-            brand: "5dbe491c5b0f361a5fe90f5a"
-        },
-        {
-            name: "Vestido Marion",
-            description: "Este me encanta su elegancia",
-            price: 99.99,
-            thumbnail: "https://source.unsplash.com/random/1",
-            images: ["https://source.unsplash.com/random/1", "https://source.unsplash.com/random/2", "https://source.unsplash.com/random/3"],
-            vars: ["Rojo", "Negro", "Blanco"],
-            category: "Vestidos",
-            brand: "5dbe491c5b0f361a5fe90f5a"
-        },
-        {
-            name: "Vestido Marion",
-            description: "Este me encanta su elegancia",
-            price: 99.99,
-            thumbnail: "https://source.unsplash.com/random/1",
-            images: ["https://source.unsplash.com/random/1", "https://source.unsplash.com/random/2", "https://source.unsplash.com/random/3"],
-            vars: ["Rojo", "Negro", "Blanco"],
-            category: "Vestidos",
-            brand: "5dbe491c5b0f361a5fe90f5a"
-        },
-        {
-            name: "Vestido Marion",
-            description: "Este me encanta su elegancia",
-            price: 99.99,
-            thumbnail: "https://source.unsplash.com/random/1",
-            images: ["https://source.unsplash.com/random/1", "https://source.unsplash.com/random/2", "https://source.unsplash.com/random/3"],
-            vars: ["Rojo", "Negro", "Blanco"],
-            category: "Vestidos",
-            brand: "5dbe491c5b0f361a5fe90f5a"
-        },
-        {
-            name: "Vestido Marion",
-            description: "Este me encanta su elegancia",
-            price: 99.99,
-            thumbnail: "https://source.unsplash.com/random/1",
-            images: ["https://source.unsplash.com/random/1", "https://source.unsplash.com/random/2", "https://source.unsplash.com/random/3"],
-            vars: ["Rojo", "Negro", "Blanco"],
-            category: "Vestidos",
-            brand: "5dbe491c5b0f361a5fe90f5a"
-        },
-        {
-            name: "Vestido Marion",
-            description: "Este me encanta su elegancia",
-            price: 99.99,
-            thumbnail: "https://source.unsplash.com/random/1",
-            images: ["https://source.unsplash.com/random/1", "https://source.unsplash.com/random/2", "https://source.unsplash.com/random/3"],
-            vars: ["Rojo", "Negro", "Blanco"],
-            category: "Vestidos",
-            brand: "5dbe491c5b0f361a5fe90f5a"
-        }
-    ]);
+// Product.insertMany(
+//     [
+//         {
+//             name: "Vestido Marion",
+//             description: "Este me encanta su elegancia",
+//             price: 99.99,
+//             thumbnail: "https://source.unsplash.com/random/1",
+//             images: ["https://source.unsplash.com/random/1", "https://source.unsplash.com/random/2", "https://source.unsplash.com/random/3"],
+//             vars: ["Rojo", "Negro", "Blanco"],
+//             category: "Vestidos",
+//             brand: "5dbe491c5b0f361a5fe90f5a"
+//         },
+//         {
+//             name: "Vestido Marion",
+//             description: "Este me encanta su elegancia",
+//             price: 99.99,
+//             thumbnail: "https://source.unsplash.com/random/1",
+//             images: ["https://source.unsplash.com/random/1", "https://source.unsplash.com/random/2", "https://source.unsplash.com/random/3"],
+//             vars: ["Rojo", "Negro", "Blanco"],
+//             category: "Vestidos",
+//             brand: "5dbe491c5b0f361a5fe90f5a"
+//         },
+//         {
+//             name: "Vestido Marion",
+//             description: "Este me encanta su elegancia",
+//             price: 99.99,
+//             thumbnail: "https://source.unsplash.com/random/1",
+//             images: ["https://source.unsplash.com/random/1", "https://source.unsplash.com/random/2", "https://source.unsplash.com/random/3"],
+//             vars: ["Rojo", "Negro", "Blanco"],
+//             category: "Vestidos",
+//             brand: "5dbe491c5b0f361a5fe90f5a"
+//         },
+//         {
+//             name: "Vestido Marion",
+//             description: "Este me encanta su elegancia",
+//             price: 99.99,
+//             thumbnail: "https://source.unsplash.com/random/1",
+//             images: ["https://source.unsplash.com/random/1", "https://source.unsplash.com/random/2", "https://source.unsplash.com/random/3"],
+//             vars: ["Rojo", "Negro", "Blanco"],
+//             category: "Vestidos",
+//             brand: "5dbe491c5b0f361a5fe90f5a"
+//         },
+//         {
+//             name: "Vestido Marion",
+//             description: "Este me encanta su elegancia",
+//             price: 99.99,
+//             thumbnail: "https://source.unsplash.com/random/1",
+//             images: ["https://source.unsplash.com/random/1", "https://source.unsplash.com/random/2", "https://source.unsplash.com/random/3"],
+//             vars: ["Rojo", "Negro", "Blanco"],
+//             category: "Vestidos",
+//             brand: "5dbe491c5b0f361a5fe90f5a"
+//         },
+//         {
+//             name: "Vestido Marion",
+//             description: "Este me encanta su elegancia",
+//             price: 99.99,
+//             thumbnail: "https://source.unsplash.com/random/1",
+//             images: ["https://source.unsplash.com/random/1", "https://source.unsplash.com/random/2", "https://source.unsplash.com/random/3"],
+//             vars: ["Rojo", "Negro", "Blanco"],
+//             category: "Vestidos",
+//             brand: "5dbe491c5b0f361a5fe90f5a"
+//         }
+//     ]);
 
