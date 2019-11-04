@@ -12,7 +12,7 @@ const productSchema = new Schema({
     vars: Array, // [{model: red, sizes: {xs: 10, s:20, m:12, l:10, xl:0}, price: },...]
     category: { type: String, enum: category_list },
     // lists: [{ type: Schema.Types.ObjectId, ref: 'list' }],
-    // creators: [{ type: Schema.Types.ObjectId, ref: 'creator' }],
+    creators: {username: String, id: { type: Schema.Types.ObjectId, ref: 'creator' }},
     brand: {name: String, id: { type: Schema.Types.ObjectId, ref: 'brand' }},
 }, {timestamps: true});
 

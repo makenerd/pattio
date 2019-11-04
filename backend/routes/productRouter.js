@@ -8,14 +8,45 @@ router.get('/', async (req, res) => {
     } catch(err) {res.json('Error! 😭', err)}
 });
 
-router.get('/grouped', async (req, res) => {
+router.get('/groups', async (req, res) => {
     try {
         const categories = await Product.distinct('category', {'brand.name': req.query.brand });
+        res.json(categories);
+    } catch(err) {res.json('Error! 😭', err)}
+});
+
+router.get('/grouped', async (req, res) => {
+    try {
+        const categories = await Product.distinct('category');
         const groups = categories.map(async category => {
-            const group = await Product.find({'brand.name': req.query.brand, category: category}, 'name price thumbnail brand.name');
+            const group = await Product.find({category: category}, 'name price thumbnail brand.name').limit(8);
+            return {category: category, group: group};
+        });
+        const result = await Promise.all(groups);
+        res.json(result);
+    } catch(err) {res.json('Error! 😭', err)}
+});
+
+router.get('/groupedcreator/:id', async (req, res) => {
+    try {
+        const categories = await Product.distinct('category', {'creators.id': req.params.id });
+        const groups = categories.map(async category => {
+            const group = await Product.find({'creators.id': req.params.id, category: category}, 'name price thumbnail brand.name').limit(8);
             return {category: category, group: group};
         }); 
-        result = await Promise.all(groups)
+        const result = await Promise.all(groups);
+        res.json(result);
+    } catch(err) {res.json('Error! 😭', err)}
+});
+
+router.get('/groupedbrand/:id', async (req, res) => {
+    try {
+        const categories = await Product.distinct('category', {'brand.id': req.params.id});
+        const groups = categories.map(async category => {
+            const group = await Product.find({'brand.id': req.params.id, category: category}, 'name price thumbnail brand.name').limit(8);
+            return {category: category, group: group};
+        }); 
+        const result = await Promise.all(groups);
         res.json(result);
     } catch(err) {res.json('Error! 😭', err)}
 });
@@ -37,8 +68,8 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
-        const { name, description, price, thumbnail, images, vars, category, brand } = req.body;
-        const product = new Product({name, description, price, thumbnail, images, vars, category, brand});
+        const { name, description, price, thumbnail, images, vars, category, brand, creators } = req.body;
+        const product = new Product({name, description, price, thumbnail, images, vars, category, brand, creators});
         await product.save();
         res.json({
             status: 'producto creado! 😇'
@@ -49,67 +80,42 @@ router.post('/', async (req, res) => {
 
 module.exports = router;
 
-// Product.insertMany(
-//     [
-//         {
-//             name: "Vestido Marion",
-//             description: "Este me encanta su elegancia",
-//             price: 99.99,
-//             thumbnail: "https://source.unsplash.com/random/1",
-//             images: ["https://source.unsplash.com/random/1", "https://source.unsplash.com/random/2", "https://source.unsplash.com/random/3"],
-//             vars: ["Rojo", "Negro", "Blanco"],
-//             category: "Vestidos",
-//             brand: "5dbe491c5b0f361a5fe90f5a"
-//         },
-//         {
-//             name: "Vestido Marion",
-//             description: "Este me encanta su elegancia",
-//             price: 99.99,
-//             thumbnail: "https://source.unsplash.com/random/1",
-//             images: ["https://source.unsplash.com/random/1", "https://source.unsplash.com/random/2", "https://source.unsplash.com/random/3"],
-//             vars: ["Rojo", "Negro", "Blanco"],
-//             category: "Vestidos",
-//             brand: "5dbe491c5b0f361a5fe90f5a"
-//         },
-//         {
-//             name: "Vestido Marion",
-//             description: "Este me encanta su elegancia",
-//             price: 99.99,
-//             thumbnail: "https://source.unsplash.com/random/1",
-//             images: ["https://source.unsplash.com/random/1", "https://source.unsplash.com/random/2", "https://source.unsplash.com/random/3"],
-//             vars: ["Rojo", "Negro", "Blanco"],
-//             category: "Vestidos",
-//             brand: "5dbe491c5b0f361a5fe90f5a"
-//         },
-//         {
-//             name: "Vestido Marion",
-//             description: "Este me encanta su elegancia",
-//             price: 99.99,
-//             thumbnail: "https://source.unsplash.com/random/1",
-//             images: ["https://source.unsplash.com/random/1", "https://source.unsplash.com/random/2", "https://source.unsplash.com/random/3"],
-//             vars: ["Rojo", "Negro", "Blanco"],
-//             category: "Vestidos",
-//             brand: "5dbe491c5b0f361a5fe90f5a"
-//         },
-//         {
-//             name: "Vestido Marion",
-//             description: "Este me encanta su elegancia",
-//             price: 99.99,
-//             thumbnail: "https://source.unsplash.com/random/1",
-//             images: ["https://source.unsplash.com/random/1", "https://source.unsplash.com/random/2", "https://source.unsplash.com/random/3"],
-//             vars: ["Rojo", "Negro", "Blanco"],
-//             category: "Vestidos",
-//             brand: "5dbe491c5b0f361a5fe90f5a"
-//         },
-//         {
-//             name: "Vestido Marion",
-//             description: "Este me encanta su elegancia",
-//             price: 99.99,
-//             thumbnail: "https://source.unsplash.com/random/1",
-//             images: ["https://source.unsplash.com/random/1", "https://source.unsplash.com/random/2", "https://source.unsplash.com/random/3"],
-//             vars: ["Rojo", "Negro", "Blanco"],
-//             category: "Vestidos",
-//             brand: "5dbe491c5b0f361a5fe90f5a"
-//         }
-//     ]);
+// ================
 
+const creator_list = [
+    { id : "5dbe55eccf3bb31df650dc5a", username : "Palodirtyano" },
+    { id : "5dbe5613cf3bb31df650dc5b", username : "Mafer Neyra" },
+    { id : "5dbe562fcf3bb31df650dc5c", username : "Ximena Moral" }
+];
+
+const brand_list = [
+    { id : "5dbe491c5b0f361a5fe90f5a", name : "Naga" },
+    { id : "5dbe4a413d02571a951a9c2c", name : "Capittana" },
+    { id : "5dbe4a523d02571a951a9c2d", name : "Late La Tela" },
+    { id : "5dbe4a673d02571a951a9c2e", name : "Afit" },
+    { id : "5dbe4aaf3d02571a951a9c2f", name : "Camote Soup" },
+    { id : "5dbe4acb3d02571a951a9c30", name : "Vivi Wu" },
+    { id : "5dbe4ae53d02571a951a9c31", name : "Peruvian Flake" }
+];
+
+const category_list = ['Vestidos', 'Calzado', 'Pantalones', 'Abrigos', 'Polos', 'Blusas', 'Swimwear', 'Underwear', 'Accesorios']
+
+const randomImg = () => {return `https://source.unsplash.com/random/${Math.floor((Math.random() * 100) + 1)}`};
+const randomNum = (num) => Math.floor((Math.random() * num))
+
+// for (let i = 0; i < 100; i++) {
+//     Product.insertMany(
+//         [
+//             {
+//                 name: "Nombre de prenda",
+//                 description: "Este me encanta su elegancia",
+//                 price: 99.99,
+//                 thumbnail: randomImg(),
+//                 images: [randomImg(), randomImg(), randomImg()],
+//                 vars: ["Rojo", "Negro", "Blanco"],
+//                 category: category_list[randomNum(9)],
+//                 brand: brand_list[randomNum(7)],
+//                 creators: creator_list[randomNum(3)]
+//             }
+//         ]);
+// };
