@@ -8,9 +8,8 @@ function Display(props) {
     const {pageGroups} = props;
 
     useEffect(async () => {
-        const result = await axios('http://localhost:8000/api/products');
+        const result = await axios('http://localhost:8000/api/products/grouped');
         console.log(result.data);
-        // console.log(JSON.stringify(result.data));
       },[]);
     
     const renderGroups = pageGroups.map( pageGroup => <Group {...pageGroup} />);

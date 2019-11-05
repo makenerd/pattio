@@ -6,15 +6,17 @@ import {  fakeInfoCategorias,
           fakeInfoCategoria, 
           fakeInfoProduct, 
         } from '../../components/Display/fakeInfo.js';
+import Category from './Category.jsx';
+import Categories from './Categories.jsx';
 
 function CategoryRoutes(props) {
   return (
     <Switch>
-      <Route path="/categorias" exact render={()=> <Display pageGroups={fakeInfoCategorias}/>}/>
-      <Route path="/categorias/:category" exact render={()=> <Display pageGroups={fakeInfoCategoria}/>}/>
+      <Route path="/categorias" exact render={()=> <Categories/>}/>
+      <Route path="/categorias/:category" exact render={(props)=> <Category {...props}/>}/>
       <Route path="/categorias/:category/:product" exact render={()=> <Card {...fakeInfoProduct}/>}/>
     </Switch>
   );
 }
 
-export { CategoryRoutes};
+export { CategoryRoutes };

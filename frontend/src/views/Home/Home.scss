@@ -1,0 +1,17 @@
+.HiThere {
+    height: 30vh;
+    overflow: hidden;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 1fr;
+    justify-items: center;
+    align-items: center;
+    &__msj {
+        font-size: 40px;
+        font-weight: bold;
+        opacity: 1;
+    }
+}

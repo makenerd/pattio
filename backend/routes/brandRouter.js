@@ -8,6 +8,15 @@ router.get('/', async (req, res) => {
     } catch(err) {res.json('Error! 😭', err)}
 });
 
+
+router.get('/title/:id', async (req, res) => {
+    try {
+        const brand = await Brand.findOne({_id: req.params.id}, 'name');
+        res.json(brand);
+    } catch(err) {res.json('Error! 😭', err)}
+});
+
+
 router.get('/:id', async (req, res) => {
     try {
         const brand = await Brand.findById(req.params.id);

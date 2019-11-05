@@ -7,9 +7,17 @@ import Options from '../Options/Options';
 import Counter from '../Counter/Counter';
 import { useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';
+import { Link } from "react-router-dom";
 
 function Card(props) {
-    const {image=[], type="", description="", author="", price="", shipping="", options=[], sizes=[]} = props;
+    // const {image=[], type="", description="", author="", price="", shipping="", options=[], sizes=[]} = props;
+    const image = props.thumbnail;
+    const description = props.name;
+    const author = props.brand ? props.brand.name : '';
+    const price = props.price;
+    const type = props.cardType;
+    const images = props.images;
+    const cardLink = props.cardLink ? props.cardLink : '/'
 
     const cardContainer = {squareS: "CardS", squareM: "Card", squareL: "Card", squareXL: "CardXL", circleM: "Card"}[type];
     
@@ -37,7 +45,7 @@ function Card(props) {
     const renderImage = type === "squareXL" ?
             <div className="sliderImg">
                 <Slider {...settings}>
-                    {image.map(img => <div className="sliderImg" key={uuid()}><div className={`CardImage ${type}`} style={{backgroundImage: `url(${img})`}}></div></div>)}
+                    {images.map(img => <div className="sliderImg" key={uuid()}><div className={`CardImage ${type}`} style={{backgroundImage: `url(${img})`}}></div></div>)}
                 </Slider>
             </div>
         :
@@ -66,11 +74,13 @@ function Card(props) {
     }[(type !== "squareS" && type !== "squareXL") ? "default" : type]; 
 
     return (
-        <div className={cardContainer} key={uuid()}>
-            {renderTitle}
-            {renderImage}
-            {renderDescription}
-        </div>
+        <Link to={cardLink}>
+            <div className={cardContainer} key={uuid()}>
+                {renderTitle}
+                {renderImage}
+                {renderDescription}
+            </div>
+        </Link>
     );
 }
 

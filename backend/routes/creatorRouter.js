@@ -8,6 +8,13 @@ router.get('/', async (req, res) => {
     } catch(err) {res.json('Error! 😭', err)}
 });
 
+router.get('/title/:id', async (req, res) => {
+    try {
+        const creator = await Creator.findOne({_id: req.params.id}, 'name');
+        res.json(creator);
+    } catch(err) {res.json('Error! 😭', err)}
+});
+
 router.get('/:id', async (req, res) => {
     try {
         const creator = await Creator.findById(req.params.id);

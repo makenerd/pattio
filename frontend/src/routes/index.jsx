@@ -8,7 +8,9 @@ import { BrandRoutes } from '../views/brand/routing.jsx';
 import { CategoryRoutes } from '../views/category/routing.jsx';
 import { CartRoutes } from '../views/cart/routing.jsx';
 
-import { Home } from "../views/displays";
+import Home from "../views/Home/Home.jsx";
+import NewForm from "../views/NewForm/NewForm.jsx";
+import ProductCard from "../components/ProductCard/ProductCard.jsx";
 
 function RoutesRoot() {
   return (
@@ -20,6 +22,8 @@ function RoutesRoot() {
         <Route path="/marcas" render={()=><BrandRoutes/>} />
         <Route path="/listas" render={()=><ListRoutes/>} />
         <Route path="/cart" component={() => <CartRoutes/>} />
+        <Route path="/newproduct" component={() => <NewForm/>} />
+        <Route path="/dummy" component={() => <ProductCard/>} />
         <Route path="/perfil" component={() => {console.log("perfil!!");}} />
       </Switch>
   );

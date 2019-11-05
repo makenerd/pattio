@@ -17,6 +17,7 @@ app.use(morgan('dev'));
 app.use(express.static('../frontend/public'));
 
 // Routes
+app.use('/api/home', require('./routes/homeRouter'));
 app.use('/api/creators', require('./routes/creatorRouter'));
 app.use('/api/products', require('./routes/productRouter'));
 app.use('/api/brands', require('./routes/brandRouter'));

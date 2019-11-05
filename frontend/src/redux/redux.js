@@ -8,10 +8,21 @@ import { createStore, combineReducers } from 'redux';
 // }
 
 
-export function slideMenuReducer(state = {slideMenu: false}, {type}) {
+export function slideMenuReducer(state = {slideMenu: false, loggedUser: ''}, {type, payload}) {
     switch(type) {
         case 'TOGGLE_MENU':
             return {...state, slideMenu: !state.slideMenu}
+        case 'CHANGE_USER':
+                return {...state, loggedUser: payload}
+        default:
+            return state
+    }
+}
+
+export function headerReducer(state = {headerTitle: ''}, {type, payload}) {
+    switch(type) {
+        case 'CHANGE_HEADER_TITLE':
+            return {...state, headerTitle: payload}
         default:
             return state
     }
@@ -32,7 +43,7 @@ export function cartReducer(state = {cartCount: 0, cartList: []}, {type, payload
     }
 }
 
-const rootReducer = combineReducers({slideMenuReducer, cartReducer})
+const rootReducer = combineReducers({slideMenuReducer, cartReducer, headerReducer})
 
 export const store = createStore(rootReducer);
 

@@ -1,0 +1,12 @@
+.NewForm {
+    margin: 10px;
+    &__title {
+        font-size: 24px;
+        text-align: center;
+        margin: 10px 0 30px 0;
+    }
+    &__input {
+        margin: 20px;
+        width: 10px;
+    }
+}

@@ -7,12 +7,13 @@ import {  fakeInfoMarcas,
           fakeInfoLista, 
           fakeInfoProduct, 
         } from '../../components/Display/fakeInfo';
+import Brand from './Brand';
 
 function BrandRoutes(props) {
   return (
     <Switch>
       <Route path="/marcas" exact render={()=> <Display pageGroups={fakeInfoMarcas}/>}/>
-      <Route path="/marcas/:marca" exact render={()=> <Display pageGroups={fakeInfoMarca}/>}/>
+      <Route path="/marcas/:brand" exact render={(props)=> <Brand {...props}/>}/>
       <Route path="/marcas/:marca/:group" exact render={()=> <Display pageGroups={fakeInfoLista}/>}/>
       <Route path="/marcas/:marca/:group/:product" exact render={()=> <Card {...fakeInfoProduct}/>}/>
     </Switch>

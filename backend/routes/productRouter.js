@@ -17,35 +17,19 @@ router.get('/groups', async (req, res) => {
 
 router.get('/grouped', async (req, res) => {
     try {
-        const categories = await Product.distinct('category');
+        // const filter = {};
+        let filter = {}
+        if (req.query.creator) {
+            filter = {'creators.id': req.query.creator};
+        } else if (req.query.brand) {
+            filter =  {'brand.id': req.query.brand};
+        }
+
+        const categories = await Product.distinct('category', filter);
         const groups = categories.map(async category => {
-            const group = await Product.find({category: category}, 'name price thumbnail brand.name').limit(8);
-            return {category: category, group: group};
+            const group = await Product.find({...filter, category: category}, 'name price thumbnail brand.name creators.username').limit(8);
+            return {groupTitle: category, group: group};
         });
-        const result = await Promise.all(groups);
-        res.json(result);
-    } catch(err) {res.json('Error! 😭', err)}
-});
-
-router.get('/groupedcreator/:id', async (req, res) => {
-    try {
-        const categories = await Product.distinct('category', {'creators.id': req.params.id });
-        const groups = categories.map(async category => {
-            const group = await Product.find({'creators.id': req.params.id, category: category}, 'name price thumbnail brand.name').limit(8);
-            return {category: category, group: group};
-        }); 
-        const result = await Promise.all(groups);
-        res.json(result);
-    } catch(err) {res.json('Error! 😭', err)}
-});
-
-router.get('/groupedbrand/:id', async (req, res) => {
-    try {
-        const categories = await Product.distinct('category', {'brand.id': req.params.id});
-        const groups = categories.map(async category => {
-            const group = await Product.find({'brand.id': req.params.id, category: category}, 'name price thumbnail brand.name').limit(8);
-            return {category: category, group: group};
-        }); 
         const result = await Promise.all(groups);
         res.json(result);
     } catch(err) {res.json('Error! 😭', err)}
@@ -53,8 +37,8 @@ router.get('/groupedbrand/:id', async (req, res) => {
 
 router.get('/category/:category', async (req, res) => {
     try {
-        const searcher = {ropasbaño: 'Ropas de baño', vestidos: 'Vestidos'}[req.params.category];
-        const products = await Product.find({ category: searcher});
+        // const searcher = {ropasbaño: 'Ropas de baño', vestidos: 'Vestidos'}[req.params.category];
+        const products = await Product.find({ category: req.params.category});
         res.json(products);
     } catch(err) {res.json('Error! 😭', err)}
 });

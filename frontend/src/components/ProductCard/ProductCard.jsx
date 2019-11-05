@@ -1,14 +1,35 @@
 import React, { useState } from 'react';
-import './Card.scss';
+import './ProductCard.scss';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Options from '../Options/Options.jsx';
-import Counter from '../Counter/Counter.jsx';
+import Options from '../Options/Options';
+import Counter from '../Counter/Counter';
 import { useDispatch } from 'react-redux';
+import uuid from 'uuid/v4';
+import { Link } from "react-router-dom";
 
-function Card(props) {
-    const {image=[], type="", description="", author="", price="", shipping="", options=[], sizes=[]} = props;
+function ProductCard(props) {
+    // const image = props.thumbnail;
+    // const description = props.name;
+    // const author = props.brand ? props.brand.name : '';
+    // const price = props.price;
+    // const type = props.cardType;
+    // const images = props.images;
+    // const cardLink = props.cardLink ? props.cardLink : '/'
+
+    const description = 'Bikini Ibiza';
+    const author = 'Capittana';
+    const type = "CardXL";
+    const price = 19.99;
+    const image = [
+        "https://source.unsplash.com/random/1", 
+        "https://source.unsplash.com/random/2", 
+        "https://source.unsplash.com/random/3", 
+        "https://source.unsplash.com/random/4", 
+        "https://source.unsplash.com/random/5", 
+        "https://source.unsplash.com/random/6"
+    ];
 
     const cardContainer = {squareS: "CardS", squareM: "Card", squareL: "Card", squareXL: "CardXL", circleM: "Card"}[type];
     
@@ -17,7 +38,8 @@ function Card(props) {
     const [count, setCount] = useState(1);
     const dispatchCart = useDispatch();
 
-    const renderTitle = type === "squareXL" ? 
+
+    const renderTitle = type === "squareXL" ?
     <div className="CardHeaderXL">
         <div className='CardTitleXL'>{description}</div>
         <div className='CardAuthorXL'>{author}</div>
@@ -35,7 +57,7 @@ function Card(props) {
     const renderImage = type === "squareXL" ?
             <div className="sliderImg">
                 <Slider {...settings}>
-                    {image.map(img => <div className="sliderImg"><div className={`CardImage ${type}`} style={{backgroundImage: `url(${img})`}}></div></div>)}
+                    {image.map(img => <div className="slidersImg" key={uuid()}><div className={`CardImage ${type}`} style={{backgroundImage: `url(${img})`}}></div></div>)}
                 </Slider>
             </div>
         :
@@ -52,8 +74,8 @@ function Card(props) {
         squareXL:
         <div className="CardDescriptionXL">
             <div className="CardPriceXL">${price}</div>
-            <Options title='Modelos' options={['Negro', 'Blanco', 'Rojo', 'Azul']} optionSelected={model} setOption={setModel}/>
-            <Options title='Tallas' options={['XS', 'S', 'M', 'L', 'XL']} optionSelected={size} setOption={setSize}/>
+            <Options title='Modelos' options={['Negro', 'Blanco', 'Rojo', 'Azul']} setOption={setModel}/>
+            <Options title='Tallas' options={['XS', 'S', 'M', 'L', 'XL']} setOption={setSize}/>
             <Counter count={count} setCount={setCount} dispatchCart={dispatchCart} itemsToCart={{description, model, size, count}}/>
         </div>,
         default:
@@ -64,12 +86,14 @@ function Card(props) {
     }[(type !== "squareS" && type !== "squareXL") ? "default" : type]; 
 
     return (
-        <div className={cardContainer}>
-            {renderTitle}
-            {renderImage}
-            {renderDescription}
-        </div>
+        <Link to='/'>
+            <div className={cardContainer} key={uuid()}>
+                {renderTitle}
+                {renderImage}
+                {renderDescription}
+            </div>
+        </Link>
     );
 }
 
-export default Card;
+export default ProductCard;
