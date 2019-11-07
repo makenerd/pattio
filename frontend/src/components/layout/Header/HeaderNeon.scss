@@ -1,0 +1,174 @@
+// .header {
+//     width: 100%;
+//     min-height: 80px;
+//     display: grid;
+//     grid-template-columns: minmax(auto, 90px) 1fr minmax(auto, 90px);
+//     grid-template-areas: 
+//     "icons_left logo icons_right"
+//     "form       form form       ";
+//     height: minmax(70px, auto);
+//     // background-color: rgb(45, 82, 247);
+//     // background: #112 url(//images.weserv.nl/?url=i.imgur.com/6QJjYMe.jpg)  center no-repeat;
+//     color: #fff;
+//     align-items: center;
+//     justify-items: center;
+//     font-size: 18px;
+//     padding: 10px 5px;
+//     &__icons {
+//       &__left {
+//         grid-area: icons_left;
+//       }
+//       &__right {
+//         grid-area: icons_right;
+//       }
+//       width: 100%;
+//       display: grid;
+//       grid-auto-flow: column;
+//       grid-auto-columns: 1fr;
+//       justify-items: center;
+//       align-items: center;
+//       column-gap: 5px;
+//     }
+//     &__title {
+//       grid-area: logo;
+//       display: grid;
+//       grid-auto-flow: row;
+//       margin: 0;
+//       font-size: 1.4rem;
+//       justify-items: center;
+      
+//       a { 
+//         color: #fff 
+//       }
+//     }
+//     &__logo {
+//       font-size: 30px;
+//     }
+//     &__sublogo {
+//       font-size: 20px;
+//     }
+//     &__search {
+//       grid-area: form;
+//       display: grid;
+//       grid-template-columns: 1fr;
+//       transition: all 5s ease-in-out;
+//       color: black;
+//       opacity: 1;
+//       max-width: 600px;
+//       // width: 100%;
+//       // border: none;
+//       // border-radius: 5px;
+//       // padding: 5px 10px;
+//       // font-size: 15px;
+//       // &::placeholder {
+//       //   font-style: oblique;
+//       // }
+//     }
+//   }
+  
+
+
+// // =========
+
+// @import url(//fonts.googleapis.com/css?family=Vibur);
+
+// .HiThere3 {
+//     background-size:cover;
+//     background: none;
+//     margin:0;
+//     height: 80px;
+//     // position: relative;
+//     display: flex;
+//     flex-wrap: wrap;
+//     .logo {
+//         text-align: center;
+//         // width: 65%;
+//         // height: 250px;
+//         margin: auto;
+//         // position: absolute;
+//         user-select: none;
+//         & .line1 {
+//             top: 30px;
+//             left: 0;
+//             right: 0;
+//             bottom: 0;
+//         }
+//         & .line2 {
+//             top: 0;
+//             left: 0;
+//             right: 0;
+//             bottom: 0;
+//         }
+//       }
+      
+//       .logo b{
+//         font: 400 60px "Vibur";
+//         color: #fee;
+//         text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff4444, 0 0 0.5em #ff4444, 0 0 0.1em #ff4444, 0 10px 3px #000;
+//       }
+//       .logo b span{
+//         animation: blink linear infinite 2s;
+//       }
+//       .logo b span:nth-of-type(2){
+//         animation: blink linear infinite 3s;
+//       }
+// }
+
+// @keyframes blink {
+//   78% {
+//     color: inherit;
+//     text-shadow: inherit;
+//   }
+//   79%{
+//      color: #333;
+//   }
+//   80% {
+    
+//     text-shadow: none;
+//   }
+//   81% {
+//     color: inherit;
+//     text-shadow: inherit;
+//   }
+//   82% {
+//     color: #333;
+//     text-shadow: none;
+//   }
+//   83% {
+//     color: inherit;
+//     text-shadow: inherit;
+//   }
+//   92% {
+//     color: #333;
+//     text-shadow: none;
+//   }
+//   92.5% {
+//     color: inherit;
+//     text-shadow: inherit;
+//   }
+// }
+
+
+// /* follow me @nodws */
+// #btn-twtr{
+//   clear:both;
+//   color:#fff;
+//   border:2px solid;
+//   border-radius:3px;
+//   text-align:center;
+//   text-decoration:none;
+//   display:block;
+//   font-family:sans-serif;
+//   font-size:14px;
+//   width:13em;
+//   padding:5px 10px;
+//   font-weight:600;
+//   position:absolute;
+//   bottom:20px;
+//   left:0;
+//   right:0;
+//   margin:0 auto;
+//   background:rgba(0,0,0,0.2);
+//   box-shadow:0 0 0px 3px rgba(0,0,0,0.2);
+//   opacity:0.4
+// }#btn-twtr:hover{color:#fff;opacity:1}

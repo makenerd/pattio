@@ -1,7 +1,9 @@
 .footer {
-  display: flex;
+  display: grid;
+  justify-items: center;
   justify-content: center;
-  align-items: center;
-  height: 50px;
-  background-color: #ddd;
+  align-items: end;
+  height: 80px;
+  margin-bottom: 30px;
+  // background-color: #ddd;
 }

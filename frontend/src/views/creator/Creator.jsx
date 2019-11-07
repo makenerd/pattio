@@ -12,7 +12,7 @@ function Creator(props) {
 
     useEffect(() => { 
         const fetchData = async () => {
-        const result = await axios(`http://localhost:8000/api/products/grouped?creator=${creatorId}`);
+        const result = await axios(`http://localhost:8000/api/products/groupedbycategory?creator=${creatorId}`);
         const title = await axios(`http://localhost:8000/api/creators/title/${creatorId}`);
         setPageGroups(result.data);
         dispatchHeaderTitle({type: 'CHANGE_HEADER_TITLE', payload: title.data.name});

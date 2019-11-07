@@ -13,7 +13,7 @@ function Brand(props) {
 
     useEffect(() => {
         const fetchData = async () => {
-        const result = await axios(`http://localhost:8000/api/products/grouped?brand=${brandId}`);
+        const result = await axios(`http://localhost:8000/api/products/groupedbycategory?brand=${brandId}`);
         const title = await axios(`http://localhost:8000/api/brands/title/${brandId}`);
         setPageGroups(result.data);
         dispatchHeaderTitle({type: 'CHANGE_HEADER_TITLE', payload: title.data.name})

@@ -4,14 +4,14 @@ import Group from '../../components/Group/Group.jsx';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 
-function Categories(props) {
+function Creators(props) {
     const [pageGroups, setPageGroups] = useState([]);
     const dispatchHeaderTitle= useDispatch()
     useEffect(() => {
         const fetchData = async () => {
-            const result = await axios('http://localhost:8000/api/products/groupedbycategory');
+            const result = await axios('http://localhost:8000/api/products/groupedbycreator');
             setPageGroups(result.data);
-            dispatchHeaderTitle({type: 'CHANGE_HEADER_TITLE', payload: 'Categorias'});
+            dispatchHeaderTitle({type: 'CHANGE_HEADER_TITLE', payload: 'Creadores'});
             };
         fetchData();
       },[]);
@@ -23,4 +23,4 @@ function Categories(props) {
     );
 }
 
-export default Categories;
+export default Creators;

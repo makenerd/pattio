@@ -15,20 +15,70 @@ router.get('/groups', async (req, res) => {
     } catch(err) {res.json('Error! 😭', err)}
 });
 
-router.get('/grouped', async (req, res) => {
+
+router.get('/groupedbycategory', async (req, res) => {
     try {
-        // const filter = {};
         let filter = {}
         if (req.query.creator) {
             filter = {'creators.id': req.query.creator};
-        } else if (req.query.brand) {
-            filter =  {'brand.id': req.query.brand};
+        }
+        if (req.query.brand) {
+            filter =  {...filter, 'brand.id': req.query.brand};
+        }
+        if (req.query.category) {
+            filter ={...filter, category: req.query.category};
         }
 
         const categories = await Product.distinct('category', filter);
         const groups = categories.map(async category => {
-            const group = await Product.find({...filter, category: category}, 'name price thumbnail brand.name creators.username').limit(8);
+            const group = await Product.find({...filter, category: category}, 'name price thumbnail brand.name creators.username category').limit(8);
             return {groupTitle: category, group: group};
+        });
+        const result = await Promise.all(groups);
+        res.json(result);
+    } catch(err) {res.json('Error! 😭', err)}
+});
+
+router.get('/groupedbybrand', async (req, res) => {
+    try {
+        let filter = {}
+        if (req.query.creator) {
+            filter = {'creators.id': req.query.creator};
+        }
+        if (req.query.brand) {
+            filter =  {...filter, 'brand.id': req.query.brand};
+        }
+        if (req.query.category) {
+            filter ={...filter, category: req.query.category};
+        }
+
+        const brands = await Product.distinct('brand.id', filter);
+        const groups = brands.map(async brand => {
+            const group = await Product.find({...filter, 'brand.id': brand}, 'name price thumbnail brand.name creators.username category').limit(8);
+            return {groupTitle: group[0].brand.name, group: group};
+        });
+        const result = await Promise.all(groups);
+        res.json(result);
+    } catch(err) {res.json('Error! 😭', err)}
+});
+
+router.get('/groupedbycreator', async (req, res) => {
+    try {
+        let filter = {}
+        if (req.query.creator) {
+            filter = {'creators.id': req.query.creator};
+        }
+        if (req.query.brand) {
+            filter =  {...filter, 'brand.id': req.query.brand};
+        }
+        if (req.query.category) {
+            filter ={...filter, category: req.query.category};
+        }
+
+        const creators = await Product.distinct('creators.id', filter);
+        const groups = creators.map(async creator => {
+            const group = await Product.find({...filter, 'creators.id': creator}, 'name price thumbnail brand.name creators.username category').limit(8);
+            return {groupTitle: group[0].creators.username, group: group};
         });
         const result = await Promise.all(groups);
         res.json(result);

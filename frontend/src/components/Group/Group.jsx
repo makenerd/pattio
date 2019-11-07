@@ -15,11 +15,11 @@ function Group(props) {
     const renderGroup = items.map(item=> <Card {...item} cardType={cardType} key={item._id}/>);
 
     return (
-        <div className="Group">
+        <div className="Group sketchy">
             <div className="GroupHeader">
                 { groupTitle ? 
                     <h3>{groupTitle} 
-                        <Link to='/newproduct'>  <Icon type="plus-circle" className='groupAddBtn' /></Link>
+                        <Link to='/newproduct'><Icon type="plus-circle" className='groupAddBtn' /></Link>
                     </h3> : "" }
                 { groupUrl ? <Link to={groupUrl}>Ver más</Link> : "" }
             </div>

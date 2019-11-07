@@ -9,6 +9,7 @@ import {  fakeInfoCreadores,
         } from '../../components/Display/fakeInfo.js';
 import axios from 'axios';
 import Creator from './Creator.jsx';
+import Creators from './Creators.jsx';
 
 function CreatorRoutes(props) {
 
@@ -19,7 +20,7 @@ function CreatorRoutes(props) {
   const infoCreadores = peticion();
   return (
     <Switch>
-      <Route path="/creadores" exact render={()=> <Display pageGroups={fakeInfoCreador}/>}/>
+      <Route path="/creadores" exact render={()=> <Creators/>}/>
       <Route path="/creadores/:creator" exact render={(props)=> <Creator {...props}/>}/>
       <Route path="/creadores/:creator/:group" exact render={()=> <Display pageGroups={fakeInfoLista}/>}/>
       <Route path="/creadores/:creator/:group/:product" exact render={()=> <Card {...fakeInfoProduct}/>}/>

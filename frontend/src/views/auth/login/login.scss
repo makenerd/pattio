@@ -1,0 +1,9 @@
+.Login {
+    display: grid;
+    // grid-template-columns: 1fr;
+    justify-items: center;
+    .Login__img {
+        height: 250px;
+        border-radius: 20px;;
+    }
+}

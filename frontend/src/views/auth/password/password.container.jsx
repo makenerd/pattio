@@ -1,6 +1,7 @@
 import React from 'react';
 import "../auth.scss"
 import banner from '../../../assets/img/headerbanner2.png'
+import angry from '../../../assets/img/angry_typing.gif'
 import {
     Row,
     Col,
@@ -8,11 +9,12 @@ import {
     Icon,
     Button 
 } from "antd";
+import '../login/login.scss';
 
 function Password() {
     return (
-      <>
-        <img src={banner} alt=""/>
+      <div className='Login'>
+        <img src={angry} alt="" className='Login__img'/>
           
           <Row>
             <Col span={20} offset={2}>
@@ -24,7 +26,7 @@ function Password() {
               <Button className="form-control" type="primary" block>Enviar correo</Button>
             </Col>
           </Row>
-      </>
+      </div>
     )
 }
 

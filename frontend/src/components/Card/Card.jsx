@@ -75,7 +75,7 @@ function Card(props) {
 
     return (
         <Link to={cardLink}>
-            <div className={cardContainer} key={uuid()}>
+            <div className={`${cardContainer} hvr-float`} key={uuid()}>
                 {renderTitle}
                 {renderImage}
                 {renderDescription}

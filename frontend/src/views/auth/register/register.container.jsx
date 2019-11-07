@@ -1,6 +1,7 @@
 import React from 'react';
 import "../auth.scss"
 import banner from '../../../assets/img/headerbanner2.png'
+import dog from '../../../assets/img/dog_typing.gif'
 import {
     Row,
     Col,
@@ -8,11 +9,12 @@ import {
     Icon,
     Button 
 } from "antd";
+import '../login/login.scss';
 
 function Register() {
     return (
-      <>
-        <img src={banner} alt=""/>
+      <div className='Login'>
+        <img className='Login__img' src={dog} alt=""/>
           
           <Row>
             <Col span={20} offset={2}>
@@ -36,7 +38,7 @@ function Register() {
               <Button className="form-control" type="primary" block>Registrar</Button>
             </Col>
           </Row>
-      </>
+      </div>
     )
 }
 

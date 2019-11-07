@@ -6,10 +6,11 @@ import { Link } from "react-router-dom";
 
 function Menu(props) {
     const [isLoggedIn, username] = [true, 'Monica']
-    const slideMenu = useSelector(state => state.slideMenuReducer.slideMenu);
+    let slideMenu = useSelector(state => state.slideMenuReducer.slideMenu);
+    let loggedUser = useSelector(state => state.slideMenuReducer.loggedUser);
     return (
         <SlideMenu isOpen={ slideMenu } styles={ styles } customBurgerIcon={false}> 
-            <Link className='bmItem' to='/auth'>{isLoggedIn? `Hola ${username} 😊` : 'Hola! Quieres iniciar sesión?'}</Link>
+            <Link className='bmItem' to='/login'>{loggedUser? `Hola ${loggedUser} 😊` : 'Hola! Quieres iniciar sesión?'}</Link>
             <Link className='bmItem' to='/creadores'>Creadores</Link>
             <Link className='bmItem' to='/categorias'>Categorias</Link>
             <Link className='bmItem' to='/marcas'>Marcas</Link>
@@ -46,7 +47,7 @@ var styles = {
     bmMenu: {
       background: 'white',
       padding: '2.5em 1.5em 0',
-      fontSize: '1.15em'
+      fontSize: '1.15em',
     },
     bmMorphShape: {
       fill: '#373a47'

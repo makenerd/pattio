@@ -1,17 +1,328 @@
-.HiThere {
-    height: 30vh;
-    overflow: hidden;
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-auto-rows: 1fr;
-    justify-items: center;
-    align-items: center;
-    &__msj {
-        font-size: 40px;
-        font-weight: bold;
-        opacity: 1;
-    }
+// .HiThere {
+//     height: 30vh;
+//     overflow: hidden;
+//     position: relative;
+//     background-size: cover;
+//     background-position: center;
+//     display: grid;
+//     grid-template-columns: 1fr;
+//     grid-auto-rows: 1fr;
+//     justify-items: center;
+//     align-items: center;
+//     &__msj {
+//         font-size: 40px;
+//         font-weight: bold;
+//         opacity: 1;
+//     }
+// }
+
+// ============
+
+// @import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+// .HiThere2 {
+      
+//       svg {
+//           display: block;
+//           font: 60px 'Montserrat';
+//         //   width: 960px;
+//           height: 250px;
+//           margin: 0 auto;
+//       }
+      
+//       .text-copy {
+//           fill: none;
+//           stroke: white;
+//           stroke-dasharray: 6% 29%;
+//           stroke-width: 3px;
+//           stroke-dashoffset: 0%;
+//           animation: stroke-offset 5.5s infinite linear;
+//       }
+      
+//       .text-copy:nth-child(1){
+//           stroke: white;
+//           animation-delay: -1;
+//       }
+      
+//       .text-copy:nth-child(2){
+//           stroke: white;
+//           animation-delay: -2s;
+//       }
+      
+//       .text-copy:nth-child(3){
+//           stroke: white;
+//           animation-delay: -3s;
+//       }
+      
+//       .text-copy:nth-child(4){
+//           stroke: white;
+//           animation-delay: -4s;
+//       }
+      
+//       .text-copy:nth-child(5){
+//           stroke: white;
+//           animation-delay: -5s;
+//       }
+      
+//       @keyframes stroke-offset{
+//           100% {stroke-dashoffset: -35%;}
+//       }
+      
+// }
+
+// =========
+// @import url('https://fonts.googleapis.com/css?family=Roboto:700');
+
+// .HiThere4 {
+//     // margin:0px;
+//     font-family:'Roboto';
+//     text-align:center;
+//     height: 200px;
+//     display: grid;
+//     align-content: center;
+    
+//     #container {
+//       color:#999;
+//       text-transform: uppercase;
+//       font-size:36px;
+//       font-weight:bold;
+//     //   padding-top:200px;  
+//     //   position:fixed;
+//       line-height: 100%;
+//     //   bottom:45%;
+//       display:block;
+
+//     }
+    
+//     #flip {
+//       height:50px;
+//       overflow:hidden;
+//     }
+    
+//     #flip > div > div {
+//       color:#fff;
+//       padding:4px 12px;
+//       height:45px;
+//       margin-bottom:45px;
+//       display:inline-block;
+//     }
+    
+//     #flip div:first-child {
+//       animation: show 5s linear infinite;
+//     }
+    
+//     #flip div div {
+//       background:#42c58a;
+//     }
+//     #flip div:first-child div {
+//       background:#4ec7f3;
+//     }
+//     #flip div:last-child div {
+//       background:#DC143C;
+//     }
+    
+//     @keyframes show {
+//       0% {margin-top:-270px;}
+//       5% {margin-top:-180px;}
+//       33% {margin-top:-180px;}
+//       38% {margin-top:-90px;}
+//       66% {margin-top:-90px;}
+//       71% {margin-top:0px;}
+//       99.99% {margin-top:0px;}
+//       100% {margin-top:-270px;}
+//     }
+    
+//     p {
+//       position:fixed;
+//       width:100%;
+//       bottom:30px;
+//       font-size:12px;
+//       color:#999;
+//       margin-top:200px;
+//     }
+// }
+
+// ============
+   
+  // Rest of CSS (Purely for this pen)
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
+
+.HiThere5 {
+  font-family: "Open Sans", sans-serif;
+  color: black;
+  // background: linear-gradient(135deg,#00C4FF,#9D1BB2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: inherit;
+  margin: 10px 0;
+.text-js{
+  opacity: 0;
+}
+.cursor{
+  display: block;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  right: -5px;
+  width: 2px;
+  /* Change colour of Cursor Here */
+  background-color: black;
+  z-index: 1;
+  animation: flash 0.5s none infinite alternate;
+}
+@keyframes flash{
+  0%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+
+// *{
+//   margin: 0;
+//   padding: 0;s
+//   boz-sizing: border-box;
+//   font-family: "Open Sans", sans-serif
+// }
+// body{
+//   background: linear-gradient(135deg,#00C4FF,#9D1BB2);
+//   height: 100vh;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
+// Text Can be styled just like normal
+.headline{
+  margin: 20px;
+  color: black;
+  font-size: 15px;
+  text-align: center;
+  h1{
+    letter-spacing: 1.6px;
+    font-weight: 300;
+    color: black;
+  }
+}
+
+.twitterLink{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 10px 15px;
+  z-index: 3;
+  svg{
+    width: 25px;
+  }
+}
+
+.credit{
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  text-decoration: none;
+}
+
+}
+
+// ============
+
+// @import url(https://fonts.googleapis.com/css?family=Montserrat:700);
+// $key: #55A4E9;
+// @function longshadow($num,$color: white){
+//   $shadow: '';
+//   $i: 0;
+//   @for $i from 1 through $num{
+//     $shadow: $shadow + (1 * $i) + 'px' + ' ' + (1 * ($i * 2)) + 'px' + ' ' + $color;
+//     @if $i < $num{
+//       $shadow: $shadow + ', ';
+//     }
+//   }
+//   @return unquote($shadow);
+// }
+
+// .HiThere6__container {
+//   height: 250px;
+//   width: 100%;
+//   background-color: $key;
+// }
+
+// .HiThere6 {
+//   display: flex;
+//   width: 100%;
+//   background-color: $key;
+// //// Make long shadows
+// // @param {Number} $num [1] - number of shadows to make
+// // @param {Color} $color [white] - color of shadows
+// // @function longshadow($num,$color: white){
+// //   $shadow: '';
+// //   $i: 0;
+// //   @for $i from 1 through $num{
+// //     $shadow: $shadow + (1 * $i) + 'px' + ' ' + (1 * ($i * 2)) + 'px' + ' ' + $color;
+// //     @if $i < $num{
+// //       $shadow: $shadow + ', ';
+// //     }
+// //   }
+// //   @return unquote($shadow);
+// // }
+
+// // $key: #55A4E9;
+
+// // html{
+// //   height: 100%;
+// // }
+// // body{
+// //   display: flex;
+// //   height: 100%;
+// //   background-color: $key;
+// // }
+// .word{
+//   margin: auto;
+//   color: white;
+//   font: 700 normal 4em/1.5 'Montserrat',sans-serif;
+//   text-shadow: longshadow(10,darken($key,10%));
+// }
+// }
+
+
+.bg-img {
+  position: relative;
+  // width: 100%;
+  // height: 100%;
+  background: url('https://source.unsplash.com/random/25') center center no-repeat;
+  background-size: cover;
+  
+  &:before {
+    content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
+	opacity: .6; 
+  }
+}
+
+.bg-img {
+  position: relative;
+  // width: 100%;
+  height: 200px;
+  background: url('https://source.unsplash.com/random/25') center center no-repeat;
+  background-size: cover;
+  
+  &:before {
+    content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
+	opacity: .6; 
+  }
 }

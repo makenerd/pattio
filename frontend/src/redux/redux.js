@@ -1,4 +1,5 @@
 import { createStore, combineReducers } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 
 // const initialState = {
@@ -13,6 +14,7 @@ export function slideMenuReducer(state = {slideMenu: false, loggedUser: ''}, {ty
         case 'TOGGLE_MENU':
             return {...state, slideMenu: !state.slideMenu}
         case 'CHANGE_USER':
+                console.log('probando');
                 return {...state, loggedUser: payload}
         default:
             return state
@@ -45,7 +47,7 @@ export function cartReducer(state = {cartCount: 0, cartList: []}, {type, payload
 
 const rootReducer = combineReducers({slideMenuReducer, cartReducer, headerReducer})
 
-export const store = createStore(rootReducer);
+export const store = createStore(rootReducer, composeWithDevTools());
 
 
 
