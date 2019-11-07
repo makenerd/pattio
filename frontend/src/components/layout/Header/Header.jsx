@@ -3,6 +3,7 @@ import { Link, withRouter  } from "react-router-dom";
 import { Badge, Icon, Input, Radio } from 'antd';
 import './Header.scss';
 import { useSelector, useDispatch } from 'react-redux';
+import Subtitle from './Subtitle.jsx';
 
 
 function Header(props) {
@@ -18,10 +19,11 @@ function Header(props) {
         { title && <Icon type="left" onClick={ () => props.history.goBack() }/> }
         <Icon type="menu" style={{ fontSize: '22px'}} onClick={()=>dispatchSlideMenu({type: 'TOGGLE_MENU'})}/>
       </div>
-      <h1 className="header__title">
+      <div className="header__title">
         <Link to="/"><h1 className='heading heading--stroke-shadow'>pattio</h1></Link>
-        <Link className="header__sublogo" to="/">{headerTitle}</Link>
-      </h1>
+        {headerTitle? <Subtitle>{headerTitle}</Subtitle> : "" }
+        {/* <Link className="header__sublogo" to="/">{headerTitle}</Link> */}
+      </div>
       <div className="header__icons header__icons_left">
         <Icon type="search" style={{ fontSize: '22px'}}  onClick={()=>setSearchBar(!searchBar)}/>
         <Link to='/cart'>
@@ -30,6 +32,7 @@ function Header(props) {
           </Badge>
         </Link>
       </div>
+
       { searchBar && <Input.Search className="header__search " placeholder="Qué estas buscando?" onSearch={value => console.log(value)} />}
       {/* <input className="header__search" type="search" placeholder="Qué estas buscando?" style={searchBar ? null : {display: "none"}}/> */}
     </header>

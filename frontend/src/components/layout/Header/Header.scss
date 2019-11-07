@@ -33,7 +33,7 @@
     display: grid;
     grid-auto-flow: row;
     margin: 0;
-    font-size: 1.4rem;
+    font-size: 1rem;
     justify-items: center;
     
     a { 
@@ -64,7 +64,9 @@ $body: #f2cee6;
 $stroke: #0d1b1e;
 $shadow: #2dc7ff;
 $size: 75px;
+$size-small: 65px;
 $halftone: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAADCAYAAABWKLW/AAAAHElEQVQYV2NUVFT8f//+fUYGBgYGMAEDcA5IBQCKJQVmn76DhAAAAABJRU5ErkJggg==");
+$break-small: 375px;
 
 @mixin stroke-width($property) {
   -webkit-text-stroke-width: $property;
@@ -105,6 +107,9 @@ $halftone: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAADCAYAAABWKL
   letter-spacing: 5px;
   margin: 0 0;
   padding: 0 10px;
+  @media screen and (max-width: $break-small) {
+    font-size: $size-small;
+  }
 
   &--stroke {
     @include stroke-width(2px);
@@ -137,6 +142,9 @@ $halftone: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAADCAYAAABWKL
       z-index: -1;
       position: absolute;
       transform: translate(-50%, -50%);
+      @media screen and (max-width: $break-small) {
+        font-size: $size-small;
+      }
     }
 
     &-color {
@@ -153,4 +161,60 @@ $halftone: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAADCAYAAABWKL
   @media screen and (min-width: 1000px) {
     grid-column: 1 / 3;
   }
+}
+
+
+
+
+// ============
+// typing
+// ============
+
+.Subtitle {
+  font-family: "Open Sans", sans-serif;
+  color: black;
+  // background: linear-gradient(135deg,#00C4FF,#9D1BB2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: inherit;
+  margin: 10px 0;
+.text-js{
+  opacity: 0;
+}
+.cursor{
+  display: flex;
+  position: absolute;
+  height: 40px;
+  top: 0;
+  right: -5px;
+  width: 2px;
+  /* Change colour of Cursor Here */
+  background-color: none;
+  z-index: 1;
+  animation: flash 0.5s none infinite alternate;
+  align-content: center;
+}
+@keyframes flash{
+  0%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+
+.headline{
+  margin: 20px;
+  color: black;
+  font-size: 15px;
+  text-align: center;
+  h1{
+    letter-spacing: 1.6px;
+    font-weight: 300;
+    color: black;
+  }
+}
+
 }

@@ -103,7 +103,7 @@ function HiThere5(props) {
   return (
     <div className='HiThere5'>
       <div class="type-js headline">
-        <h1 class="text-js">Encuentra. Descubre. Comparte ;)</h1> 
+        <h1 class="text-js">Encuentra. Descubre. Comparte</h1> 
       </div>
     </div>
   );
@@ -196,7 +196,7 @@ function Home(props) {
           <HiThere2/>
           <HiThere3/>
           <HiThere4/> */}
-          <HiThere5/>
+          {/* <HiThere5/> */}
           {/* <HiThere6/> */}
             {homeGroups.map( homeGroup => <Group {...homeGroup} key={homeGroup.groupTitle}/>)}
         </>

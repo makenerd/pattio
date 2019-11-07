@@ -16,6 +16,7 @@ function Brand(props) {
         const result = await axios(`http://localhost:8000/api/products/groupedbycategory?brand=${brandId}`);
         const title = await axios(`http://localhost:8000/api/brands/title/${brandId}`);
         setPageGroups(result.data);
+        console.log(title);
         dispatchHeaderTitle({type: 'CHANGE_HEADER_TITLE', payload: title.data.name})
         };
         fetchData();
