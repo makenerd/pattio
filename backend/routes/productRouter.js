@@ -28,10 +28,10 @@ router.get('/groupedbycategory', async (req, res) => {
         if (req.query.category) {
             filter ={...filter, category: req.query.category};
         }
-
+        const queryLimit = parseInt(req.query.limit) || 6;
         const categories = await Product.distinct('category', filter);
         const groups = categories.map(async category => {
-            const group = await Product.find({...filter, category: category}, 'name price thumbnail brand.name creators.username category').limit(8);
+            const group = await Product.find({...filter, category: category}, 'name price thumbnail brand.name creators.username category').limit(queryLimit);
             return {groupTitle: category, group: group};
         });
         const result = await Promise.all(groups);
@@ -51,11 +51,11 @@ router.get('/groupedbybrand', async (req, res) => {
         if (req.query.category) {
             filter ={...filter, category: req.query.category};
         }
-
+        const queryLimit = parseInt(req.query.limit) || 6;
         const brands = await Product.distinct('brand.id', filter);
         const groups = brands.map(async brand => {
-            const group = await Product.find({...filter, 'brand.id': brand}, 'name price thumbnail brand.name creators.username category').limit(8);
-            return {groupTitle: group[0].brand.name, group: group};
+            const group = await Product.find({...filter, 'brand.id': brand}, 'name price thumbnail brand.name creators.username category').limit(queryLimit);
+            return {groupTitle: group[0].brand.name, group: group, groupId: brand};
         });
         const result = await Promise.all(groups);
         res.json(result);
@@ -74,11 +74,11 @@ router.get('/groupedbycreator', async (req, res) => {
         if (req.query.category) {
             filter ={...filter, category: req.query.category};
         }
-
+        const queryLimit = parseInt(req.query.limit) || 6;
         const creators = await Product.distinct('creators.id', filter);
         const groups = creators.map(async creator => {
-            const group = await Product.find({...filter, 'creators.id': creator}, 'name price thumbnail brand.name creators.username category').limit(8);
-            return {groupTitle: group[0].creators.username, group: group};
+            const group = await Product.find({...filter, 'creators.id': creator}, 'name price thumbnail brand.name creators.username category').limit(queryLimit);
+            return {groupTitle: group[0].creators.username, group: group, groupId: creator};
         });
         const result = await Promise.all(groups);
         res.json(result);
@@ -93,9 +93,9 @@ router.get('/category/:category', async (req, res) => {
     } catch(err) {res.json('Error! 😭', err)}
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/single/:id', async (req, res) => {
     try {
-        const product = await Product.findById(req.params.id);
+        const product = await Product.findById(req.params.id, 'name price thumbnail images brand');
         res.json(product);
     } catch(err) {res.json('Error! 😭', err)}
 });

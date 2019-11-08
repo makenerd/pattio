@@ -1,13 +1,11 @@
 import { createStore, combineReducers } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-
 // const initialState = {
 //     slideMenu: false,
 //     cartCount: 0,
 //     cartList: []
 // }
-
 
 export function slideMenuReducer(state = {slideMenu: false, loggedUser: ''}, {type, payload}) {
     switch(type) {
@@ -36,7 +34,7 @@ export function cartReducer(state = {cartCount: 0, cartList: []}, {type, payload
             console.log('adding');
             return {...state, cartCount: state.cartCount + payload}
         case 'ADD_CART_LIST':
-            console.log(payload);
+            // console.log(payload);
             console.log(state.cartList);
             // return {...state, cartList: [...state.cartList, payload]}
             return {...state, cartList: updateCart(state.cartList, payload)}
@@ -45,19 +43,38 @@ export function cartReducer(state = {cartCount: 0, cartList: []}, {type, payload
     }
 }
 
+// Store
+
+function saveToLocalStorage(state) {
+    try {
+        const serializedState = JSON.stringify(state);
+        localStorage.setItem('state', serializedState);
+    } catch(e) {
+        console.log(e);
+    }
+}
+
+
+
+
+
 const rootReducer = combineReducers({slideMenuReducer, cartReducer, headerReducer})
 
 export const store = createStore(rootReducer, composeWithDevTools());
 
+store.subscribe(() => saveToLocalStorage(store.getState()))
 
 
+// Helpers
 
 function updateCart(currentCart, newItem) {
-    const repeatedItem = currentCart.find(currentItem => ((currentItem.description === newItem.description) && (currentItem.model === newItem.model) && (currentItem.size === newItem.size)))
+    const repeatedItem = currentCart.find(currentItem => ((currentItem.productId === newItem.productId) && (currentItem.model === newItem.model) && (currentItem.size === newItem.size)))
     if (repeatedItem) {
-    return currentCart.map(currentItem => ((currentItem.description === newItem.description) && (currentItem.model === newItem.model) && (currentItem.size === newItem.size)) ? 
+    return currentCart.map(currentItem => ((currentItem.productId === newItem.productId) && (currentItem.model === newItem.model) && (currentItem.size === newItem.size)) ? 
         {...currentItem, count: currentItem.count + newItem.count} :
         currentItem )
     } else {
     return [...currentCart, newItem]
     }};
+
+

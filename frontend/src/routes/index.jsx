@@ -1,10 +1,12 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import { AuthRoutes } from "../views/auth";
-import { Login2 } from "../views/auth/login/login2.container"
+// import { AuthRoutes } from "../views/auth";
+import Login from "../views/auth/login/Login.jsx"
+import Password from "../views/auth/login/Password.jsx"
+import Register from "../views/auth/login/Register.jsx"
 
 import { CreatorRoutes } from '../views/creator/routing.jsx';
-import { ListRoutes } from '../views/follower/routing.jsx';
+import ListRoutes from '../views/list/routing.jsx';
 import { BrandRoutes } from '../views/brand/routing.jsx';
 import { CategoryRoutes } from '../views/category/routing.jsx';
 import { CartRoutes } from '../views/cart/routing.jsx';
@@ -17,8 +19,9 @@ function RoutesRoot() {
   return (
       <Switch>
         <Route path="/" exact render={() => <Home/>} />
-        <Route path="/auth" render={()=><AuthRoutes/>} />
-        <Route path="/login" component={Login2} />
+        <Route path="/login" render={()=><Login/>} />
+        <Route path="/reset" render={() => <Password/>} />
+        <Route path="/register" render={()=><Register/>} />
 
         <Route path="/categorias" render={()=><CategoryRoutes/>} />
         <Route path="/creadores" render={()=><CreatorRoutes/>} />

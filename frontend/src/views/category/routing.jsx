@@ -2,6 +2,7 @@ import React from 'react';
 import {Route, Switch} from 'react-router-dom';
 import Display from '../../components/Display/Display.jsx';
 import Card from '../../components/Card/Card.jsx';
+import ProductCard from '../../components/ProductCard/ProductCard.jsx';
 import {  fakeInfoCategorias, 
           fakeInfoCategoria, 
           fakeInfoProduct, 
@@ -14,7 +15,7 @@ function CategoryRoutes(props) {
     <Switch>
       <Route path="/categorias" exact render={()=> <Categories/>}/>
       <Route path="/categorias/:category" exact render={(props)=> <Category {...props}/>}/>
-      <Route path="/categorias/:category/:product" exact render={()=> <Card {...fakeInfoProduct}/>}/>
+      <Route path="/categorias/:category/:product" exact render={(props)=> <ProductCard {...props}/>}/>
     </Switch>
   );
 }

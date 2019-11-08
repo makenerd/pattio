@@ -1,7 +1,8 @@
-import React, {Component, useState} from 'react'
-import { Link } from 'react-router-dom'
-import banner from '../../../assets/img/headerbanner2.png'
-import cat from '../../../assets/img/cat_typing.gif'
+import React, {Component, useState, useEffect} from 'react'
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import banner from '../../../assets/img/headerbanner2.png';
+import cat from '../../../assets/img/cat_typing.gif';
 import {
   Row,
   Col,
@@ -9,16 +10,20 @@ import {
   Icon,
   Checkbox,
   Button,
-  Form 
+  Form
 } from "antd";
-import { useDispatch } from 'react-redux';
 import './login.scss';
 
-function Login2 (props) {
+function Login (props) {
   console.log(props);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const dispatchUsername = useDispatch();
+  const dispatchHeaderTitle= useDispatch();
+
+  useEffect(() => {
+    dispatchHeaderTitle({type: 'CHANGE_HEADER_TITLE', payload: 'Inicia sesión'})
+  },[]);
 
   function handleSubmit (e) {
     e.preventDefault()
@@ -47,7 +52,9 @@ function Login2 (props) {
 
     return (
       <div className='Login'>
-      <img src={cat} alt="" className='Login__img'/>
+      <div className='frame'>
+        <img src={cat} alt="" className='Login__img'/>
+      </div>
   
       <Row>
         <Col span={20} offset={2}>
@@ -69,15 +76,15 @@ function Login2 (props) {
             
             <Checkbox className="form-control">Recuérdame</Checkbox>
             
-            <Link to="auth/reset" className="form__forgot">¿Olvidaste tu contraseña?</Link>
+            <Link to="/reset" className="form__forgot">¿Olvidaste tu contraseña?</Link>
             <Button htmlType="submit" className="form-control" type="primary" block>Ingresar</Button>
           </Form>
 
-          <Link to="/auth/register">No tengo una cuenta, registrarme</Link>
+          <Link to="/register">No tengo una cuenta, registrarme</Link>
         </Col>
       </Row>
       </div>
     );
 }
 
-export { Login2 }
+export default Login;

@@ -20,7 +20,9 @@ function Category(props) {
 
     return (
         <>
-            {pageGroups.map( pageGroup => <Group {...pageGroup} groupType='scrollV' cardType='squareL' key={pageGroup.groupTitle}/>)}
+            {pageGroups.map( pageGroup => <Group {...pageGroup} groupType='scrollV' cardType='squareL' key={pageGroup.groupTitle}
+            groupUrl={`/categorias/${pageGroup.groupTitle}`}
+            cardUrl={`/categorias/${pageGroup.groupTitle}`}/>)}
         </>
     );
 }

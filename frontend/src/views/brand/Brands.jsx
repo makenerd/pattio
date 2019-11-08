@@ -18,7 +18,9 @@ function Brands(props) {
     
     return (
         <>
-            {pageGroups.map( pageGroup => <Group {...pageGroup} groupType='scrollH' cardType='squareM' key={pageGroup.groupTitle}/>)}
+            {pageGroups.map( pageGroup => <Group {...pageGroup} groupType='scrollH' cardType='squareM' key={pageGroup.groupTitle}
+            groupUrl={`/marcas/${pageGroup.groupId}`}
+            cardUrl={`/creadores/${pageGroup.groupId}/p`}/>)}
         </>
     );
 }

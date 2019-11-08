@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import "../auth.scss"
 import banner from '../../../assets/img/headerbanner2.png'
 import dog from '../../../assets/img/dog_typing.gif'
@@ -11,10 +12,19 @@ import {
 } from "antd";
 import '../login/login.scss';
 
-function Register() {
+function Register(props) {
+
+  const dispatchHeaderTitle= useDispatch()
+
+  useEffect(() => {
+    dispatchHeaderTitle({type: 'CHANGE_HEADER_TITLE', payload: 'Crea tu usuario :)'})
+  },[]);
+
     return (
       <div className='Login'>
-        <img className='Login__img' src={dog} alt=""/>
+        <div className='frame'>
+          <img className='Login__img' src={dog} alt="" style={{height:'180px'}}/>
+        </div>
           
           <Row>
             <Col span={20} offset={2}>
@@ -39,7 +49,7 @@ function Register() {
             </Col>
           </Row>
       </div>
-    )
+    );
 }
 
-export { Register } 
+export default Register;

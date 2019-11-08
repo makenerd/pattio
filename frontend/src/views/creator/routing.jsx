@@ -8,24 +8,20 @@ import {  fakeInfoCreadores,
           fakeInfoProduct, 
         } from '../../components/Display/fakeInfo.js';
 import axios from 'axios';
-import Creator from './Creator.jsx';
 import Creators from './Creators.jsx';
+import Creator from './Creator.jsx';
+import CreatorGroup from './CreatorGroup.jsx';
+import ProductCard from '../../components/ProductCard/ProductCard.jsx';
 
 function CreatorRoutes(props) {
-
-  const peticion = async () => {
-    const result = await axios('http://localhost:8000/api/products/grouped');
-    return result.data;
-  };
-  const infoCreadores = peticion();
   return (
     <Switch>
       <Route path="/creadores" exact render={()=> <Creators/>}/>
       <Route path="/creadores/:creator" exact render={(props)=> <Creator {...props}/>}/>
-      <Route path="/creadores/:creator/:group" exact render={()=> <Display pageGroups={fakeInfoLista}/>}/>
-      <Route path="/creadores/:creator/:group/:product" exact render={()=> <Card {...fakeInfoProduct}/>}/>
+      <Route path="/creadores/:creator/p/:product" exact render={(props)=> <ProductCard {...props}/>}/>
+      <Route path="/creadores/:creator/:group" exact render={(props)=> <CreatorGroup {...props}/>}/>
     </Switch>
   );
 }
 
-export { CreatorRoutes }; 
+export { CreatorRoutes };

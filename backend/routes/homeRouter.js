@@ -6,14 +6,14 @@ let randomImg = () => {return `https://source.unsplash.com/random/${Math.floor((
 router.get('/lists', (req, res) => {
     try {
         const lists = [
-            {name: 'Bikinis Chic', thumbnail: randomImg()}, 
-            {name: 'Vestidos Rua', thumbnail: randomImg()},
-            {name: 'Accesorios Invierno', thumbnail: randomImg()}, 
-            {name: 'Abrigos Animal Print', thumbnail: randomImg()}, 
-            {name: 'Polos Luau', thumbnail: randomImg()}, 
-            {name: 'Blusas de oficina', thumbnail: randomImg()},
-            {name: 'Swimwear Hawai', thumbnail: randomImg()},
-            {name: 'Underwear Sex Symbol', thumbnail: randomImg()}];
+            {_id: 1123,name: 'Bikinis Chic', thumbnail: randomImg()}, 
+            {_id: 2123,name: 'Vestidos Rua', thumbnail: randomImg()},
+            {_id: 3123,name: 'Accesorios Invierno', thumbnail: randomImg()}, 
+            {_id: 4123,name: 'Abrigos Animal Print', thumbnail: randomImg()}, 
+            {_id: 5123,name: 'Polos Luau', thumbnail: randomImg()}, 
+            {_id: 6123,name: 'Blusas de oficina', thumbnail: randomImg()},
+            {_id: 7123,name: 'Swimwear Hawai', thumbnail: randomImg()},
+            {_id: 8123,name: 'Underwear Sex Symbol', thumbnail: randomImg()}];
         const result = {groupTitle: 'Listas', group: lists}
         res.json(result);
     } catch(err) {res.json('Error! 😭', err)}
@@ -40,15 +40,15 @@ router.get('/brands', async (req, res) => {
 router.get('/categories', (req, res) => {
     try {
         const categories = [
-            {name: 'Vestidos', thumbnail: randomImg()}, 
-            {name: 'Calzado', thumbnail: randomImg()},
-            {name: 'Pantalones', thumbnail: randomImg()}, 
-            {name: 'Abrigos', thumbnail: randomImg()}, 
-            {name: 'Polos', thumbnail: randomImg()}, 
-            {name: 'Blusas', thumbnail: randomImg()},
-            {name: 'Swimwear', thumbnail: randomImg()},
-            {name: 'Underwear', thumbnail: randomImg()},
-            {name: 'Accesorios', thumbnail: randomImg()}];
+            {name: 'Vestidos', thumbnail: randomImg(), _id: 'Vestidos'}, 
+            {name: 'Calzado', thumbnail: randomImg(), _id: 'Calzado'},
+            {name: 'Pantalones', thumbnail: randomImg(), _id: 'Pantalones'}, 
+            {name: 'Abrigos', thumbnail: randomImg(), _id: 'Abrigos'}, 
+            {name: 'Polos', thumbnail: randomImg(), _id: 'Polos'}, 
+            {name: 'Blusas', thumbnail: randomImg(), _id: 'Blusas'},
+            {name: 'Swimwear', thumbnail: randomImg(), _id: 'Swimwear'},
+            {name: 'Underwear', thumbnail: randomImg(), _id: 'Underwear'},
+            {name: 'Accesorios', thumbnail: randomImg(), _id: 'Accesorios'}];
         const result = {groupTitle: 'Categorias', group: categories}
         res.json(result);
     } catch(err) {res.json('Error! 😭', err)}

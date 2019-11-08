@@ -1,5 +1,6 @@
-import React from 'react';
-import "../auth.scss"
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import "../auth.scss";
 import banner from '../../../assets/img/headerbanner2.png'
 import angry from '../../../assets/img/angry_typing.gif'
 import {
@@ -11,10 +12,20 @@ import {
 } from "antd";
 import '../login/login.scss';
 
-function Password() {
+
+function Password(props) {
+
+  const dispatchHeaderTitle= useDispatch();
+
+  useEffect(() => {
+    dispatchHeaderTitle({type: 'CHANGE_HEADER_TITLE', payload: 'Cambia contraseña'})
+  },[]);
+
     return (
       <div className='Login'>
-        <img src={angry} alt="" className='Login__img'/>
+        <div className='frame'>
+          <img src={angry} alt="" className='Login__img'/>
+        </div>
           
           <Row>
             <Col span={20} offset={2}>
@@ -27,7 +38,7 @@ function Password() {
             </Col>
           </Row>
       </div>
-    )
+    );
 }
 
-export { Password } 
+export default Password;

@@ -215,6 +215,9 @@ $break-small: 375px;
     font-weight: 300;
     color: black;
   }
+  @media screen and (max-width: $break-small) {
+    font-size: 12px;
+  }
 }
 
 }

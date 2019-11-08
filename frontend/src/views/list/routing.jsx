@@ -6,15 +6,16 @@ import {  fakeInfoListas,
           fakeInfoLista, 
           fakeInfoProduct  
         } from '../../components/Display/fakeInfo'
+import Lists from './Lists.jsx';
 
 function ListRoutes(props) {
   return (
     <Switch>
-      <Route path="/listas" exact render={()=> <Display pageGroups={fakeInfoListas}/>}/>
-      <Route path="/listas/:lista" exact render={()=> <Display pageGroups={fakeInfoLista}/>}/>
-      <Route path="/listas/:lista/:product" exact render={()=> <Card {...fakeInfoProduct}/>}/>
+      <Route path="/listas" exact render={()=> <Lists/>}/>
+      <Route path="/listas/:lista" exact render={()=> <Lists/>}/>
+      {/* <Route path="/listas/:lista/:product" exact render={()=> <Card {...fakeInfoProduct}/>}/> */}
     </Switch>
   );
 }
 
-export { ListRoutes }
+export default ListRoutes;

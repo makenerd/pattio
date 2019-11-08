@@ -21,7 +21,7 @@ function HiThere(props) {
 function HiThere2(props) {
   
   return (
-    <div className='HiThere2' style={{backgroundImage: `url(${'https://source.unsplash.com/random/64'})`}}>
+    <div className='HiThere2' style={{background: 'none'}}>
       <svg viewBox="0 0 300 300">
         <symbol id="s-text">
           <text textAnchor="middle" x="50%" y="30%">Encuentra.</text>
@@ -179,22 +179,21 @@ function Home(props) {
         const brandHome = await axios('http://localhost:8000/api/home/brands');
         const categoriesHome = await axios('http://localhost:8000/api/home/categories');
         
-        const result = [{...listsHome.data, groupType: 'scrollH', cardType: 'squareM'}, 
-                        {...creatorsHome.data, groupType: 'scrollH', cardType: 'circleM'},
-                        {...brandHome.data, groupType: 'scrollH', cardType: 'circleM'},
-                        {...categoriesHome.data, groupType: 'scrollH', cardType: 'circleM'}];
+        const result = [{...listsHome.data, groupType: 'scrollH', cardType: 'squareM', groupUrl: '/listas', cardUrl: '/listas'}, 
+                        {...creatorsHome.data, groupType: 'scrollH', cardType: 'circleM', groupUrl: '/creadores', cardUrl: '/creadores'},
+                        {...brandHome.data, groupType: 'scrollH', cardType: 'circleM', groupUrl: '/marcas', cardUrl: '/marcas'},
+                        {...categoriesHome.data, groupType: 'scrollH', cardType: 'circleM', groupUrl: '/categorias', cardUrl: '/categorias'}];
         setHomeGroups(result);
         dispatchHeaderTitle({type: 'CHANGE_HEADER_TITLE', payload: ''});
         };
         fetchData();
       },[]);
     
-    
     return (
         <>
-          {/* <HiThere/>
-          <HiThere2/>
-          <HiThere3/>
+          {/* <HiThere/> */}
+          {/* <HiThere2/> */}
+          {/* <HiThere3/>
           <HiThere4/> */}
           {/* <HiThere5/> */}
           {/* <HiThere6/> */}

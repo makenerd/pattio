@@ -1,27 +1,26 @@
 import React from 'react';
 import './Group.scss';
-import Card from '../Card/Card.jsx';
+import Card, { GroupTitle } from '../Card/Card.jsx';
 import { Link } from 'react-router-dom';
 import { Icon } from 'antd';
 
 function Group(props) {
     // const {groupTitle="", groupType="", groupUrl="", items=[]} = props;
     const groupTitle= props.groupTitle;
-    const groupUrl= '';
     const items = props.group;
     const groupType= props.groupType;
     const cardType= props.cardType;
+    const groupUrl= props.groupUrl;
+    const cardUrl= props.cardUrl;
 
-    const renderGroup = items.map(item=> <Card {...item} cardType={cardType} key={item._id}/>);
+    const renderGroup = items.map(item=> <Card {...item} cardType={cardType} key={item._id} cardUrl={`${cardUrl}/${item._id}`}/>);
 
     return (
         <div className="Group sketchy">
             <div className="GroupHeader">
-                { groupTitle ? 
-                    <h3>{groupTitle} 
-                        <Link to='/newproduct'><Icon type="plus-circle" className='groupAddBtn' /></Link>
-                    </h3> : "" }
-                { groupUrl ? <Link to={groupUrl}>Ver más</Link> : "" }
+                <h3>{groupTitle}</h3>
+                <Link to='/newproduct'><Icon type="plus-circle" className='groupAddBtn'/></Link>
+                { (groupType==='scrollH') ? <Link to={groupUrl}>Ver más</Link> : "" }
             </div>
             <div className={groupType}>
                 {renderGroup}

@@ -7,7 +7,7 @@ import Options from '../Options/Options';
 import Counter from '../Counter/Counter';
 import { useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
 
 function Card(props) {
     // const {image=[], type="", description="", author="", price="", shipping="", options=[], sizes=[]} = props;
@@ -17,7 +17,7 @@ function Card(props) {
     const price = props.price;
     const type = props.cardType;
     const images = props.images;
-    const cardLink = props.cardLink ? props.cardLink : '/'
+    const cardUrl = props.cardUrl ? props.cardUrl : '/'
 
     const cardContainer = {squareS: "CardS", squareM: "Card", squareL: "Card", squareXL: "CardXL", circleM: "Card"}[type];
     
@@ -74,7 +74,7 @@ function Card(props) {
     }[(type !== "squareS" && type !== "squareXL") ? "default" : type]; 
 
     return (
-        <Link to={cardLink}>
+        <Link to={cardUrl}>
             <div className={`${cardContainer} hvr-float`} key={uuid()}>
                 {renderTitle}
                 {renderImage}

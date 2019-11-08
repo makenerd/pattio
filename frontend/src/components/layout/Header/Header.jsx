@@ -7,7 +7,6 @@ import Subtitle from './Subtitle.jsx';
 
 
 function Header(props) {
-  const [title] = ["Mafer Neyra"];
   const [searchBar, setSearchBar] = useState(false);
   const cartCount = useSelector(state => state.cartReducer.cartCount);
   const headerTitle = useSelector(state => state.headerReducer.headerTitle);
@@ -16,7 +15,7 @@ function Header(props) {
   return (
     <header className="header">
       <div className="header__icons header__icons_left">
-        { title && <Icon type="left" onClick={ () => props.history.goBack() }/> }
+        { headerTitle && <Icon type="left" onClick={ () => props.history.goBack() }/> }
         <Icon type="menu" style={{ fontSize: '22px'}} onClick={()=>dispatchSlideMenu({type: 'TOGGLE_MENU'})}/>
       </div>
       <div className="header__title">
