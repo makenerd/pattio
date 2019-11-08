@@ -40,6 +40,8 @@ export function cartReducer(state = {cartCount: 0, cartList: []}, {type, payload
             return {...state, cartList: updateCart(state.cartList, payload)}
         default:
             return state
+        case 'REMOVE_FROM_LIST':
+            return {...state, cartList: state.cartList.splice(payload, 1)}
     }
 }
 
@@ -54,13 +56,22 @@ function saveToLocalStorage(state) {
     }
 }
 
+function loadFromLocalStorage() {
+    try {
+        const serializedState = localStorage.getItem('state');
+        if (serializedState === null) return undefined;
+        return JSON.parse(serializedState); 
+    } catch(e) {
+        console.log(e);
+        return undefined;
+    }
+}
 
-
-
+const persistedState = loadFromLocalStorage();
 
 const rootReducer = combineReducers({slideMenuReducer, cartReducer, headerReducer})
 
-export const store = createStore(rootReducer, composeWithDevTools());
+export const store = createStore(rootReducer, persistedState, composeWithDevTools());
 
 store.subscribe(() => saveToLocalStorage(store.getState()))
 

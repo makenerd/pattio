@@ -7,14 +7,16 @@ import uuid from 'uuid/v4';
 import { Link } from "react-router-dom"
 
 function CartItem(props) {
+    const dispatchRemoveItem = useDispatch();
     console.log(props);
     const thumbnail = props.thumbnail;
-    const brand = props.brand.name;
+    const brand = props.brand;
     const name = props.name;
     const model = props.model;
     const size = props.size;
     const price = props.price;
     const count = props.count;
+    const index = props.index;
     const cardUrl = props.cardUrl ? props.cardUrl : '/';
     // const thumbnail = 'https://source.unsplash.com/random/63';
     // const brand = 'Naga';
@@ -39,7 +41,10 @@ function CartItem(props) {
                 <div className='CartItem__sec'>Modelo: {model} | Talla: {size}</div>
                 <div className='CartItem__'>{price}</div>
                 <div className='CartItem__'>{count}</div>
-                <div>Borrar</div>
+                <div onClick={() => { 
+                    dispatchRemoveItem({type: 'REMOVE_FROM_LIST', payload: count});
+                    dispatchRemoveItem({type: 'ADD_CART_COUNT', payload: -count});
+                }}>Borrar</div>
             </div>
         </div>
     );

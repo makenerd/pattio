@@ -8,17 +8,11 @@ function Cart(props) {
     console.log(cartList.length);
     return (
         <div className='sketchy'>
-            { 
-            cartList.map(cartItem => <CartItem {...cartItem} />)
+            { (cartList.length === 0) ?
+                <div>Aqui no hay nada joven</div>
+                :
+                cartList.map((cartItem, index) => <CartItem {...cartItem} index={index}/>)
             }
-            <CartItem/>
-            <CartItem/>
-            <CartItem/>
-            <CartItem/>
-            <CartItem/>
-            <CartItem/>
-            <CartItem/>
-            <CartItem/>
         </div>
     );
 }
