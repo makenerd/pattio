@@ -58,7 +58,8 @@ var styles = {
     },
     bmItem: {
       display: 'block', //cambiado de inline-block
-      margin: '0 0 30px 0' //extra
+      margin: '0 0 30px 0', //extra
+      zIndex: '1'
     },
     bmOverlay: {
       background: 'rgba(0, 0, 0, 0.3)'

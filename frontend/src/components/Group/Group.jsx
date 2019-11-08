@@ -23,7 +23,9 @@ function Group(props) {
                 { (groupType==='scrollH') ? <Link to={groupUrl}>Ver más</Link> : "" }
             </div>
             <div className={groupType}>
-                {renderGroup}
+                <div className={`${groupType}__inner`}>
+                    {renderGroup}
+                </div>
             </div>
         </div>
     );
