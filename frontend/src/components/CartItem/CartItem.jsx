@@ -41,8 +41,9 @@ function CartItem(props) {
                 <div className='CartItem__sec'>Modelo: {model} | Talla: {size}</div>
                 <div className='CartItem__'>{price}</div>
                 <div className='CartItem__'>{count}</div>
+                <div>Index: {index}</div>
                 <div onClick={() => { 
-                    dispatchRemoveItem({type: 'REMOVE_FROM_LIST', payload: count});
+                    dispatchRemoveItem({type: 'REMOVE_FROM_LIST', payload: index});
                     dispatchRemoveItem({type: 'ADD_CART_COUNT', payload: -count});
                 }}>Borrar</div>
             </div>

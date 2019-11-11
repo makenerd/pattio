@@ -19,9 +19,9 @@ function RoutesRoot() {
   return (
       <Switch>
         <Route path="/" exact render={() => <Home/>} />
-        <Route path="/login" render={()=><Login/>} />
+        <Route path="/login" render={(props)=><Login {...props}/>} />
         <Route path="/reset" render={() => <Password/>} />
-        <Route path="/register" render={()=><Register/>} />
+        <Route path="/register" render={(props)=><Register {...props}/>} />
 
         <Route path="/categorias" render={()=><CategoryRoutes/>} />
         <Route path="/creadores" render={()=><CreatorRoutes/>} />

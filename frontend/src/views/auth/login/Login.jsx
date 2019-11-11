@@ -15,7 +15,6 @@ import {
 import './login.scss';
 
 function Login (props) {
-  console.log(props);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const dispatchUsername = useDispatch();

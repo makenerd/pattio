@@ -38,10 +38,10 @@ export function cartReducer(state = {cartCount: 0, cartList: []}, {type, payload
             console.log(state.cartList);
             // return {...state, cartList: [...state.cartList, payload]}
             return {...state, cartList: updateCart(state.cartList, payload)}
+        case 'REMOVE_FROM_LIST':
+                return {...state, cartList: state.cartList.filter((cartItem, i) => i !== payload)};
         default:
             return state
-        case 'REMOVE_FROM_LIST':
-            return {...state, cartList: state.cartList.splice(payload, 1)}
     }
 }
 

@@ -9,7 +9,7 @@ function Cart(props) {
     console.log(cartList);
     console.log(cartList.length);
     return (
-        <div className='sketchy'>
+        <div className='Cart sketchy'>
             { (cartList.length === 0) ?
                 <div className='Cart__noluck'>
                     <div className='frame_cart'>
